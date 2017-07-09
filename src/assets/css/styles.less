@@ -25,8 +25,10 @@
 
 @navbar-default-color:#184A91;
 @navbar-default-link-color:#184A91;
-@navbar-default-link-hover-color:lighten(@navbar-default-link-color, 15%);;
+@navbar-default-link-hover-color: lighten(@navbar-default-link-color, 15%);
 @navbar-default-color:#184A91;
+
+@default-animation-speed: 500ms;
 
 a {
   color: @link-color;
@@ -62,8 +64,9 @@ img.centered {
 body { padding-top: 6pc; }
 
 .blue-text{
-    font-family: @font-family-open-sans;
-    font-size: 1em;
+    font-family: "Open Sans";
+    font-size: 0.8em;
+    font-weight: lighter;
     color: #184A91;
 }
 
@@ -85,13 +88,13 @@ body { padding-top: 6pc; }
 }
 
 .upper-phone{
-    width: 1.3pc;
+    width: 1.5pc;
 }
 .bar{
     vertical-align: middle;
     width: 1px;
     display: inline-block;
-    height: 50%;
+    height: 75%;
     background: grey;
 }
 .upper-button{
@@ -106,4 +109,134 @@ body { padding-top: 6pc; }
     color: #184A91;
     font-weight: bold;
     font-family: @font-family-open-sans;
+}
+
+.pse-button{
+        padding: 0;
+    margin-top: 1pc;
+    margin-left: -0.5pc;
+}
+
+.log-in-btn{
+        padding-top: 1.2pc;
+}
+
+.title-footer{
+    font-weight: 700;
+    border-bottom: 1px solid white;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-bottom: 1pc;
+}
+
+footer{
+    background-color: @brand-primary;
+    color: white;
+    font-size: 0.9em;
+    padding-top: 1pc;
+    > .container-fluid > .row > div > p {
+        margin: 0 !important;
+        font-weight: 500;
+    }
+    > .container-fluid > .custom-row-footer > a{
+        color: white;
+        text-decoration: underline;
+        text-align: center;
+        padding-right: 0.5pc;
+        line-height: 2pc;
+    }
+    > .container-fluid > .custom-row-footer{        
+        text-align: center;
+    }
+}
+.custom-row-footer{
+    background-color: #305C9C;
+    height: 2pc;
+    margin-top: 2pc;
+}
+
+.twitter,.facebook,.youtube,.instagram {    
+    width: 3.5pc;
+    height: 3.5pc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.twitter {
+    background-color: #53C3EC;
+    background-image: url('../img/twitter.png');
+    background-repeat: no-repeat;
+    background-size:80%;
+    background-position:center;
+}
+
+.facebook {
+    background-color: #0B72B5;  
+    background-image: url('../img/facebook.png');
+    background-repeat: no-repeat;
+    background-size:80%;
+    background-position:center;  
+}
+
+.youtube {
+    background-color: #C01924;
+    background-image: url('../img/youtube.png');
+    background-repeat: no-repeat;
+    background-size:60%;
+    background-position:center;    
+}
+
+.instagram {
+    background-color: #FFFFFF;   
+    background-image: url('../img/instagram.png');
+    background-repeat: no-repeat;
+    background-size:80%;
+    background-position:center; 
+}
+
+/*Here we gonna define everything that happens when the menu responsive is activated*/
+
+@media (max-width: @grid-float-breakpoint-max) {
+    .just-for-space{
+        display: none !important;
+    }
+    .navbar-collapse{
+        width: 100%;
+    }
+    .navbar-nav{
+        height: auto !important;
+    }
+    .inner-menu-upper-prop { 
+        padding-top: 0;
+    }
+    .col-md-offset-1 {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: @screen-xs) {
+    .inner-menu-upper {    
+        margin-left: -8%;
+    }
+    footer{
+    
+    > .container-fluid > .custom-row-footer > a{
+        display: block;
+        margin-bottom: 0.5pc;
+    }
+    > .container-fluid > .custom-row-footer{
+        height: auto;
+    }
+    }
+}   
+
+@media (min-width: @screen-lg) {
+    .navbar-nav {    
+    float: right;
+    padding-right: 3.4pc;
+    }
+    .magic-container{
+            float: right;
+            padding-right: 2pc;
+    }
 }

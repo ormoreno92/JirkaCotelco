@@ -1,0 +1,15 @@
+{
+  "services": {
+    "ListaProyectos": "http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters",
+    "ListaNoticias": "http://apps.jirka.co/JSih/webresources/NewsREST/getNews",
+    "ListaStreaming": "http://apps.jirka.co/JSih/webresources/StreamingREST/getStreamings",
+    "ListaImagenesPortal": "http://apps.jirka.co/JSih/webresources/ImagesPortalREST/getImagesPortal",
+    "ListaAfiliados": "http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliates",
+    "ListaEventos": "http://apps.jirka.co/JSih/webresources/EventsREST/getEvents",
+    "ListaDocumentos": "http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getDocuments",
+    "ListaAliados": "http://apps.jirka.co/JSih/webresources/PartnersREST/getPartnersCategories",
+    "AfiliadoHotel": "http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate",
+    "ListaPublik": "http://apps.jirka.co/JSih/webresources/PublikREST/getMessagues",
+    "ListaPublicaciones": "http://apps.jirka.co/JSih/webresources/PublicationsREST/getPublications"
+  }
+}
