@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
+import { DataServiceService } from './data-service.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -64,7 +65,7 @@ import { PublishingsComponent } from './publishings/publishings.component';
     ]),
     AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
