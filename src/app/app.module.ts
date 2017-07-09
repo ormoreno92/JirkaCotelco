@@ -15,6 +15,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
 import { ChaptersComponent } from './chapters/chapters.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { PublishingsComponent } from './publishings/publishings.component';
+import { MarcasCotelcoComponent } from './marcas-cotelco/marcas-cotelco.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PublishingsComponent } from './publishings/publishings.component';
     OurServicesComponent,
     ChaptersComponent,
     AffiliateComponent,
-    PublishingsComponent
+    PublishingsComponent,
+    MarcasCotelcoComponent
   ],
   imports: [
     BrowserModule,

@@ -6367,12 +6367,12 @@ button.close {
 .carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
   left: 50%;
-  margin-left: -10px;
+  margin-left: -4pc;
 }
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
   right: 50%;
-  margin-right: -10px;
+  margin-right: -4pc;
 }
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
@@ -6448,6 +6448,23 @@ button.close {
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-next {
     margin-right: -10px;
+  }
+  .home-principal-banner > .carousel-control .glyphicon-chevron-left,
+  .home-principal-banner > .carousel-control .glyphicon-chevron-right,
+  .home-principal-banner > .carousel-control .icon-prev,
+  .home-principal-banner > .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .home-principal-banner > .carousel-control .glyphicon-chevron-left,
+  .home-principal-banner > .carousel-control .icon-prev {
+    margin-left: -4pc;
+  }
+  .home-principal-banner > .carousel-control .glyphicon-chevron-right,
+  .home-principal-banner > .carousel-control .icon-next {
+    margin-right: -4pc;
   }
   .carousel-caption {
     left: 20%;
@@ -6899,6 +6916,20 @@ footer > .container-fluid > .custom-row-footer {
   background-size: 80%;
   background-position: center;
 }
+.container-marcas-cotelco {
+  border-top: 1px gray dotted;
+  text-align: center;
+  padding-bottom: 4pc;
+  padding-top: 2pc;
+}
+.title-home {
+  color: #1A171C;
+  font-weight: bold;
+}
+.hr-home {
+  width: 10%;
+  border-top: 2px solid #B1B3B4;
+}
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 @media (max-width: 1023px) {
   .just-for-space {
@@ -6915,6 +6946,9 @@ footer > .container-fluid > .custom-row-footer {
   }
   .col-md-offset-1 {
     margin-left: 0 !important;
+  }
+  .custom-marcas-control {
+    display: block;
   }
 }
 @media (max-width: 480px) {

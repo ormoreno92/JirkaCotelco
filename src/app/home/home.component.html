@@ -1,17 +1,18 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">
-            <img src="{{image.url}}" alt="{{image.title}}">
+<div class="home-principal-banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">
+                <img src="{{image.url}}" alt="{{image.title}}">
+            </div>
         </div>
-    </div>
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+    </div>
 </div>
-
 <h2>Header Level 2</h2>
 
 <ol>
@@ -31,3 +32,5 @@
     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
     <li>Aliquam tincidunt mauris eu risus.</li>
 </ul>
+
+<app-marcas-cotelco></app-marcas-cotelco>
