@@ -1,0 +1,109 @@
+@import "../../../node_modules/bootstrap/less/bootstrap.less";
+
+/*Nerd Colombia Custom Styles*/
+
+@body-bg: #ffffff;
+
+@brand-primary: #184A91;
+@brand-success: #F9B42B;
+@brand-info:    #5bc0de;
+@brand-warning: #5cb85c;
+@brand-danger:  #d9534f;
+
+@navbar-default-bg: #ffffff;
+@navbar-default-border: transparent;
+
+@text-color: #000000;
+
+@link-color:       @brand-primary;
+@link-hover-color: lighten(@link-color, 15%);
+
+@btn-default-color: White;
+@btn-primary-color: Black;
+@btn-default-bg:#184A91;
+@btn-primary-bg:#F9B42B;
+
+@navbar-default-color:#184A91;
+@navbar-default-link-color:#184A91;
+@navbar-default-link-hover-color:lighten(@navbar-default-link-color, 15%);;
+@navbar-default-color:#184A91;
+
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: @link-hover-color;
+    text-decoration: none;
+  }
+}
+
+@font-family-lato: "Lato", Helvetica, Arial, sans-serif;
+@font-family-open-sans :"Open Sans";
+@font-family-base: @font-family-open-sans;
+
+@icon-font-path:          "../fonts/";
+@icon-font-name:          "glyphicons-halflings-regular";
+
+img.centered {
+      max-width: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -50px 0px 0px -50px;
+}
+
+.lato, h1, h4, h5{
+    font-family: @font-family-lato;
+}
+
+@navbar-height: 5pc;
+
+body { padding-top: 6pc; }
+
+.blue-text{
+    font-family: @font-family-open-sans;
+    font-size: 1em;
+    color: #184A91;
+}
+
+.inner-menu-upper{
+    height: 5pc;
+    background: transparent;
+}
+.inner-menu-upper-prop{
+    height: 100%;
+    display: inline-block;
+    text-align: center; 
+    padding-top: 1em;
+    white-space: nowrap;
+}
+
+.inner-menu-upper-prop > img{
+    vertical-align: middle;
+    max-width: 2.5pc;
+}
+
+.upper-phone{
+    width: 1.3pc;
+}
+.bar{
+    vertical-align: middle;
+    width: 1px;
+    display: inline-block;
+    height: 50%;
+    background: grey;
+}
+.upper-button{
+    vertical-align: middle;
+    display: inline-block;
+}
+.logo-menu{
+    max-width: 12pc;
+}
+
+.navbar-nav li a{
+    color: #184A91;
+    font-weight: bold;
+    font-family: @font-family-open-sans;
+}

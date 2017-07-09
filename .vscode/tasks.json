@@ -1,0 +1,8 @@
+{
+    "version": "0.1.0",
+    "command": "lessc",
+    "isShellCommand": true,
+    "args": [
+        "src/assets/css/styles.less", "src/assets/css/styles.css"
+    ]
+}

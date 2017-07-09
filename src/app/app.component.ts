@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(router: Router, title: Title) {
+    router.events.subscribe((event) => {
+      title.setTitle(router.url.replace('/', '') + ' - Cotelco');
+    });
+  }
 }
