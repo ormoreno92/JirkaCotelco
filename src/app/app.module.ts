@@ -45,11 +45,11 @@ import { MarcasCotelcoComponent } from './marcas-cotelco/marcas-cotelco.componen
         component: HomeComponent
       },
       {
-        path: 'Nosotros',
+        path: '\Nosotros',
         component: AboutComponent
       },
       {
-        path: 'Servicios',
+        path: '\Servicios',
         component: OurServicesComponent
       },
       {
