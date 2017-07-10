@@ -30,6 +30,10 @@
 
 @default-animation-speed: 500ms;
 
+body{
+    overflow-x: hidden;
+}
+
 a {
   color: @link-color;
   text-decoration: none;
@@ -201,6 +205,7 @@ footer{
 }
 .title-home {
     color: #1A171C;
+    text-align: center;
     font-weight: bold;
 }
 
@@ -208,6 +213,71 @@ footer{
     width: 10%;
     border-top: 2px solid #B1B3B4;
 }
+
+.yellow-bar {
+    height: 0.5pc;
+    background: @brand-success;
+}
+
+.blue-bar {
+    background: @brand-primary;
+}
+
+.inner-menu-bar{
+        padding-top: 0.5pc;
+    padding-bottom: 0.5pc;
+}
+
+.inner-menu-bar > img {
+    width: 100%;
+    max-width: 4pc;
+    display: block;
+    margin: 0 auto;
+}
+
+.inner-menu-bar > span {
+    color: white;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-family: @font-family-lato;
+        padding-top: 0.3pc;
+}
+
+.our-affiliates-home{
+    background: #F3F3F2;
+    padding-bottom: 2pc;
+}
+
+.cotelco-home-img{
+        position: absolute;
+    top: -2.5pc;
+    width: 9pc;
+    display: block;
+    margin: 0 auto;
+}
+
+.title-home-forms{
+    text-align: center;
+    color: @brand-primary;
+    font-weight: bolder;
+}
+
+.hr-home-forms{
+    width: 30%;
+    border-top: 1px solid #B1B3B4;
+}
+
+.form-allies{
+        background: white;
+    height: 15pc;
+    padding-top: 1pc;
+    margin-top: 2pc;
+    width: 16%;
+}
+
 
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 

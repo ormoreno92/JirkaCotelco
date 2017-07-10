@@ -1,64 +1,55 @@
-<div class="row">
-  <div class="col-md-2 col-md-offset-1">
-    left panel
-  </div>
-  <div class="col-md-6 home-hotels-banne">
-    <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#thumbnail-preview-indicators" data-slide-to="0" class="active">
-          <div class="thumbnail">
-            <img class="img-responsive" src="https://s3.amazonaws.com/ooomf-com-files/wdXqHcTwSTmLuKOGz92L_Landscape.jpg">
-          </div>
-        </li>
-        <li data-target="#thumbnail-preview-indicators" data-slide-to="1">
-          <div class="thumbnail">
-            <img class="img-responsive" src="https://s3.amazonaws.com/ooomf-com-files/tU3ptNgGSP6U2fE67Gvy_SYDNEY-162.jpg">
-          </div>
-        </li>
-        <li data-target="#thumbnail-preview-indicators" data-slide-to="2">
-          <div class="thumbnail">
-            <img class="img-responsive" src="https://s3.amazonaws.com/ooomf-com-files/mtNrf7oxS4uSxTzMBWfQ_DSC_0043.jpg">
-          </div>
-        </li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item slides active">
-          <div class="slide-1"></div>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>New carousel layout</h1>
-              <p>Responsive thumbnail preview in carousel indicators.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item slides">
-          <div class="slide-2"></div>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item slides">
-          <div class="slide-3"></div>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
+<div class="container-fluid our-affiliates-home">
+  <h3 class="title-home">
+    NUESTROS AFILIADOS
+  </h3>
+  <hr class="hr-home">
+  <div class="row-fluid">
+    <div class="col-md-2 col-md-offset-1 form-allies">
+      <div class="row">
+        <h5 class="title-home-forms">
+          RESERVAS DE HOTELES
+        </h5>
+        <hr class="hr-home-forms">
       </div>
-      <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <div class="row">
+        <form>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="col-md-2 col-md-offset-1">
-    right panel
+    <div class="col-md-7 home-hotels-banne">
+      <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+            <div class="slide-{{i}} slide-n" [ngStyle]="{'background-image':'url(' +image.url+ ')'}"> </div>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>{{image.title}}</h1>
+                <p>{{image.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <li *ngFor="let img of images; let i=index" data-target="#thumbnail-preview-indicators" attr.data-slide-to="{{i}}" class=""
+            [ngClass]="{active:i==0}">
+            <img class="img-responsive" src="{{img.url}}">
+          </li>
+          <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </ol>
+      </div>
+    </div>
+    <div class="col-md-2 form-allies">
+      <div class="row">
+        <h5 class="title-home-forms">
+          RESERVAS DE HOTELES
+        </h5>
+        <hr class="hr-home-forms">
+      </div>
+      <div class="row">
+        <form>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
