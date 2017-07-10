@@ -16,6 +16,7 @@ import { ChaptersComponent } from './chapters/chapters.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { PublishingsComponent } from './publishings/publishings.component';
 import { MarcasCotelcoComponent } from './marcas-cotelco/marcas-cotelco.component';
+import { Carousel2Component } from './home/carousel2/carousel2.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MarcasCotelcoComponent } from './marcas-cotelco/marcas-cotelco.componen
     ChaptersComponent,
     AffiliateComponent,
     PublishingsComponent,
-    MarcasCotelcoComponent
+    MarcasCotelcoComponent,
+    Carousel2Component
   ],
   imports: [
     BrowserModule,
