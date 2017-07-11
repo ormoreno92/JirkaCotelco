@@ -15,8 +15,8 @@ import { OurServicesComponent } from './our-services/our-services.component';
 import { ChaptersComponent } from './chapters/chapters.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { PublishingsComponent } from './publishings/publishings.component';
-import { MarcasCotelcoComponent } from './marcas-cotelco/marcas-cotelco.component';
 import { Carousel2Component } from './home/carousel2/carousel2.component';
+import { MarcasCotelcoComponent } from './home/marcas-cotelco/marcas-cotelco.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,8 @@ import { Carousel2Component } from './home/carousel2/carousel2.component';
     OurServicesComponent,
     ChaptersComponent,
     AffiliateComponent,
-    PublishingsComponent,
-    MarcasCotelcoComponent,
-    Carousel2Component
+    PublishingsComponent,    
+    Carousel2Component, MarcasCotelcoComponent
   ],
   imports: [
     BrowserModule,
