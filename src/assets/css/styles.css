@@ -4071,7 +4071,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
 }
 .nav-pills > li > a {
-  border-radius: 4px;
+  border-radius: 0;
+  color: #fff;
+  background-color: #184A91;
 }
 .nav-pills > li + li {
   margin-left: 2px;
@@ -4079,8 +4081,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #184A91;
+  color: #000000;
+  background-color: #F9B42B;
 }
 .nav-stacked > li {
   float: none;
@@ -5454,7 +5456,7 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -5466,6 +5468,8 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  text-align: center;
+  font-weight: bold;
 }
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
@@ -5686,22 +5690,22 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
-  border-color: #ddd;
+  border-color: #5A5A5B;
 }
 .panel-default > .panel-heading {
-  color: #333333;
-  background-color: #f5f5f5;
-  border-color: #ddd;
+  color: black;
+  background-color: #F9B42B;
+  border-color: #5A5A5B;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #ddd;
+  border-top-color: #5A5A5B;
 }
 .panel-default > .panel-heading .badge {
-  color: #f5f5f5;
-  background-color: #333333;
+  color: #F9B42B;
+  background-color: black;
 }
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #ddd;
+  border-bottom-color: #5A5A5B;
 }
 .panel-primary {
   border-color: #184A91;
@@ -6999,6 +7003,75 @@ footer > .container-fluid > .custom-row-footer {
 .blue {
   color: #5bc0de;
 }
+.header-inner-sections {
+  height: 10pc;
+}
+.title-inner-section {
+  background: rgba(24, 74, 145, 0.6);
+  width: 40%;
+  margin-top: 4%;
+  position: relative;
+  float: left;
+  color: white;
+  text-align: center;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  height: 3pc;
+}
+.title-inner-section img {
+  display: inline-block;
+  width: 10%;
+}
+.title-inner-section span {
+  display: inline-block;
+}
+.about-img {
+  background-color: transparent;
+  background-image: url('../img/about.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 40%;
+}
+.about-section {
+  border: 1px solid #5A5A5B;
+  height: auto;
+  min-height: 19pc;
+  box-shadow: 0 2px 4px 0 #a3a3a3;
+}
+.about-gen-section {
+  padding-top: 3pc;
+  padding-bottom: 3pc;
+}
+.lefty-menu {
+  text-align: center;
+}
+.affiliate-img {
+  background-color: transparent;
+  background-image: url('../img/afiliese.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 60%;
+}
+.jumbotron {
+  padding-top: 0.5pc;
+  padding-bottom: 0.5pc;
+  padding-left: 0.5pc;
+  padding-right: 0.5pc;
+  margin-bottom: 0.5pc;
+  color: inherit;
+  background-color: #F8F7F7;
+}
+.custom-jumbotrom-affiliate,
+.custom-jumbotrom-affiliate > p {
+  color: #184A91;
+  font-size: 1em;
+}
+.label-form {
+  color: #88898B;
+}
+.mandatory {
+  color: red !important;
+}
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 @media (max-width: 1023px) {
   .just-for-space {
@@ -7032,6 +7105,12 @@ footer > .container-fluid > .custom-row-footer {
   }
   .home-hotels-banne {
     width: 100% !important;
+  }
+  .title-inner-section {
+    width: 100%;
+  }
+  .title-inner-section img {
+    width: 5%;
   }
 }
 @media (max-width: 480px) {

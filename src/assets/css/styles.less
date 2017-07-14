@@ -30,6 +30,8 @@
 
 @default-animation-speed: 500ms;
 
+@nav-pills-border-radius: 0;
+
 body{
     overflow-x: hidden;
 }
@@ -292,6 +294,86 @@ display: inline-block;
     color: @brand-info;
 }
 
+.header-inner-sections {
+    height: 10pc;
+}
+
+.title-inner-section {
+    background: rgba(24, 74, 145, 0.6);
+    width: 40%;
+    margin-top: 4%;
+    position: relative;
+    float: left;
+    color: white;    
+    text-align: center;
+    font-family: @font-family-lato;
+    font-size: 2em;
+    height: 3pc;
+}
+
+.title-inner-section img {
+    display: inline-block;
+    width: 10%;
+}
+.title-inner-section span {
+    display: inline-block;
+}
+
+.about-img{
+    background-color: transparent;
+    background-image: url('../img/about.png');
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position-y: 40%;
+}
+
+.about-section{
+    border: 1px solid #5A5A5B;
+    height: auto;
+    min-height: 19pc;
+    box-shadow: 0 2px 4px 0 #a3a3a3;
+}
+
+.about-gen-section{
+    padding-top: 3pc;
+    padding-bottom: 3pc;
+}
+
+.lefty-menu{
+    text-align: center;
+}
+
+.affiliate-img{
+    background-color: transparent;
+    background-image: url('../img/afiliese.png');
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position-y: 60%;
+}
+
+.jumbotron {
+    padding-top: 0.5pc;    
+    padding-bottom: 0.5pc;
+    padding-left: 0.5pc;
+    padding-right: 0.5pc;
+    margin-bottom: 0.5pc;
+    color: inherit;
+    background-color: #F8F7F7;
+}
+
+.custom-jumbotrom-affiliate, .custom-jumbotrom-affiliate > p{
+    color: #184A91;
+    font-size: 1em;
+}
+
+.label-form{
+color: #88898B;
+}
+
+.mandatory{
+color: red !important;
+}
+
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 
 @media (max-width: @grid-float-breakpoint-max) {
@@ -326,6 +408,12 @@ display: inline-block;
     }
     .home-hotels-banne{
         width: 100% !important;
+    }
+    .title-inner-section {
+        width: 100%;        
+    }
+    .title-inner-section img {
+        width: 5%;
     }
 }
 
