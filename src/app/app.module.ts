@@ -17,6 +17,11 @@ import { AffiliateComponent } from './affiliate/affiliate.component';
 import { PublishingsComponent } from './publishings/publishings.component';
 import { Carousel2Component } from './home/carousel2/carousel2.component';
 import { MarcasCotelcoComponent } from './home/marcas-cotelco/marcas-cotelco.component';
+import { PressComponent } from './press/press.component';
+import { EventsComponent } from './events/events.component';
+import { TrainingsComponent } from './trainings/trainings.component';
+import { ConsultanciesComponent } from './consultancies/consultancies.component';
+import { AlliesComponent } from './allies/allies.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +33,14 @@ import { MarcasCotelcoComponent } from './home/marcas-cotelco/marcas-cotelco.com
     OurServicesComponent,
     ChaptersComponent,
     AffiliateComponent,
-    PublishingsComponent,    
-    Carousel2Component, MarcasCotelcoComponent
+    PublishingsComponent,
+    Carousel2Component,
+    MarcasCotelcoComponent,
+    PressComponent,
+    EventsComponent,
+    TrainingsComponent,
+    ConsultanciesComponent,
+    AlliesComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +75,26 @@ import { MarcasCotelcoComponent } from './home/marcas-cotelco/marcas-cotelco.com
       {
         path: '\Publicaciones',
         component: PublishingsComponent
+      },
+      {
+        path: '\SalaPrensa',
+        component: PressComponent
+      },
+      {
+        path: '\Eventos',
+        component: EventsComponent
+      },
+      {
+        path: '\Capacitaciones',
+        component: TrainingsComponent
+      },
+      {
+        path: '\Consultorias',
+        component: ConsultanciesComponent
+      },
+      {
+        path: '\Aliados',
+        component: AlliesComponent
       }
     ]),
     AlertModule.forRoot()

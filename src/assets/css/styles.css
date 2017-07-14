@@ -2543,10 +2543,10 @@ output {
   color: #555555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border: 1px solid #87888A;
+  border-radius: 0;
+  -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.075);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -6944,6 +6944,7 @@ footer > .container-fluid > .custom-row-footer {
 .inner-menu-bar {
   padding-top: 0.5pc;
   padding-bottom: 0.5pc;
+  cursor: pointer;
 }
 .inner-menu-bar > img {
   width: 100%;
@@ -6983,10 +6984,20 @@ footer > .container-fluid > .custom-row-footer {
 }
 .form-allies {
   background: white;
-  height: 15pc;
+  height: 18pc;
   padding-top: 1pc;
   margin-top: 2pc;
   width: 16%;
+}
+.lefty {
+  display: inline-block;
+}
+.lefty-input {
+  display: inline-block;
+  width: 89%;
+}
+.blue {
+  color: #5bc0de;
 }
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 @media (max-width: 1023px) {
@@ -7007,6 +7018,20 @@ footer > .container-fluid > .custom-row-footer {
   }
   .custom-marcas-control {
     display: block;
+  }
+  .loguito-cot {
+    display: none;
+  }
+  .inner-menu-bar {
+    width: 32%;
+    display: inline-block;
+  }
+  .form-allies {
+    margin-top: 0;
+    width: 100%;
+  }
+  .home-hotels-banne {
+    width: 100% !important;
   }
 }
 @media (max-width: 480px) {

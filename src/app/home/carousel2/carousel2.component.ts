@@ -1,6 +1,7 @@
 declare var jQuery: any;
 import { DataServiceService } from '../../data-service.service';
 import { Component, OnInit } from '@angular/core';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel2',
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Carousel2Component implements OnInit {
   images;
+  model;
   constructor(private dataService: DataServiceService) { }
   ngOnInit() {
     this.dataService.getHomeBannerImages()
@@ -18,3 +20,4 @@ export class Carousel2Component implements OnInit {
     console.log(data);
   }
 }
+
