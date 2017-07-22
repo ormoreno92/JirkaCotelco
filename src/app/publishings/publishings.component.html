@@ -1,3 +1,36 @@
-<p>
-  publishings works!
-</p>
+<div class="row header-inner-sections publicaciones-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/sala_prensa.png" alt="Publicaciones">
+    <span>PUBLICACIONES</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container-fluid">
+  <h3 class="title-home">
+    REVISTAS
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="row magazine-carousel">
+    <div class="col-md-12">
+      <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+        <div class="carousel-inner">
+          <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">            
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a href="{{image.link}}" target="_blank">
+                <img src="{{image.url}}" class="img-responsive" alt="{{image.title}}">
+              </a>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+  <h3 class="title-home">
+    BIBLIOTECA
+  </h3>
+  <hr class="hr-home">
+  <br />
+</div>

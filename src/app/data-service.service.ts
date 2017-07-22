@@ -14,12 +14,12 @@ export class DataServiceService {
     ListaStreaming: 'http://apps.jirka.co/JSih/webresources/StreamingREST/getStreamings',
     ListaImagenesPortal: 'http://apps.jirka.co/JSih/webresources/ImagesPortalREST/getImagesPortal',
     ListaAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliates',
-    ListaEventos: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters',
-    ListaDocumentos: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters',
-    ListaAliados: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters',
-    AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters',
-    ListaPublik: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters',
-    ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters'
+    ListaEventos: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvents',
+    ListaDocumentos: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getDocuments',
+    ListaAliados: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getPartnersCategories',
+    AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate',
+    ListaPublik: 'http://apps.jirka.co/JSih/webresources/PublikREST/getMessagues',
+    ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/PublicationsREST/getPublications'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -28,6 +28,16 @@ export class DataServiceService {
 
   public getHomeBannerImages(): Observable<HomeBannerImages[]> {
     return this.http.get(this.services.ListaImagenesPortal, this.options)
+      .map(res => res.json());
+  }
+
+  public getPublicaciones(): Observable<PublicacionesMagazines[]> {
+    return this.http.get(this.services.ListaPublicaciones, this.options)
+      .map(res => res.json());
+  }
+
+  public getCapacitaciones(): Observable<any[]> {
+    return this.http.get(this.services.ListaEventos, this.options)
       .map(res => res.json());
   }
 
@@ -46,6 +56,54 @@ export class HomeBannerImages {
   url: string;
   link: string;
   order: number;
+  state: number;
+}
+
+export class PublicacionesMagazines {
+  id: number;
+  name: string;
+  email: string;
+  fax: string;
+  url: string;
+  webSite: string;
+  phone: string;
+  cellPhone: string;
+  address: string;
+  state: number;
+  departament: string;
+  executiveDirector: string;
+  requestsAffiliates: string;
+  pendingAffiliations: string;
+  requestsChangeDaily: string;
+  requestsChangeMonthly: string;
+}
+
+export class Capacitaciones {
+  id: number;
+  name: string;
+  summary: string;
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  description: string;
+  place: string;
+  addres: string;
+  advertisingPiece: string;
+  url: string;
+  videoLink: string;
+  color: string;
+  introductionFile: string;
+  scheduleFile: string;
+  speakersFile: string;
+  programFile: string;
+  inversionFile: string;
+  hotelRatesFile: string;
+  reportsFile: string;
+  registrationFile: string;
+  registrationAltFile: string;
+  registratioLink: string;
+  registrationAltLink: string;
   state: number;
 }
 

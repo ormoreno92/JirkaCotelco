@@ -9,8 +9,28 @@
   <div class="row about-gen-section">
     <div class="col-md-9 about-section">
       <div class="row">
-        <div>
-          Here comes the text of each section
+        <div class="tab-content">
+          <div id="sec1" class="tab-pane active">
+            La Asociación Hotelera y Turística de Colombia – COTELCO es un gremio federado con amplia trayectoria, reconocimiento y presencia
+            nacional que representa y apoya los intereses del sector hotelero y turístico colombiano fortaleciendo su competitividad
+            y productividad mediante la prestación de servicios que permitan dar respuesta a las necesidades de nuestros
+            afiliados y del turismo en general. COTELCO cuenta con un equipo de colaboradores altamente calificado que trabaja
+            con ética, disciplina y respeto que le permite a la Asociación tener un compromiso indeclinable con la sociedad,
+            el medio ambiente, la economía y el desarrollo tecnológico.
+          </div>
+          <div id="sec2" class="tab-pane">
+            Para el año 2017 la Asociación Hotelera y Turística de Colombia – COTELCO, seguirá siendo el gremio hotelero y turístico
+            más representativo del país, reconocido por haber desarrollado estrategias efectivas que habrán fortalecido la
+            competitividad e internacionalización de la industria turística y por su liderazgo en el análisis sectorial e
+            incidencia en políticas públicas que contribuyan al posicionamiento del turismo como una de las industrias más
+            importantes de la economía nacional.
+          </div>
+          <div id="sec3" class="tab-pane">
+            History
+          </div>
+          <div id="sec4" class="tab-pane">
+            Lista de FUNCIONARIOS, diseño por definir
+          </div>
         </div>
       </div>
     </div>
@@ -18,13 +38,16 @@
       <div class="row">
         <ul class="nav nav-pills nav-stacked lefty-menu">
           <li class="active">
-            <a href="javascript:void(0);" ng-model="mision">MISIÓN</a>
+            <a data-toggle="pill" href="#sec1">MISIÓN</a>
           </li>
           <li>
-            <a href="javascript:void(0);" ng-model="vision">VISIÓN</a>
+            <a data-toggle="pill" href="#sec2">VISIÓN</a>
           </li>
           <li>
-            <a href="javascript:void(0);" ng-model="history">HISTORIA</a>
+            <a data-toggle="pill" href="#sec3">HISTORIA</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec4">FUNCIONARIOS</a>
           </li>
         </ul>
       </div>

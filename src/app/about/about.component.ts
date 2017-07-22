@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare var Jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-about',
@@ -12,4 +14,9 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
 
+  public SelectTargetTab(identifier: string): void {
+    console.log(identifier);
+  }
+
 }
+
