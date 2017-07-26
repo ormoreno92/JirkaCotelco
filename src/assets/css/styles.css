@@ -7160,6 +7160,11 @@ select[class^="label-form"] {
   text-indent: -1px;
   line-height: 1px;
 }
+.has-text-centered {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 @media (max-width: 1023px) {
   .just-for-space {

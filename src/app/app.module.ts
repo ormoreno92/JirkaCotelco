@@ -53,6 +53,7 @@ import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -112,8 +113,7 @@ import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
         component: AffiliateResultComponent
       }
     ]),
-    AlertModule.forRoot(),
-    NgxPaginationModule
+    AlertModule.forRoot()
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

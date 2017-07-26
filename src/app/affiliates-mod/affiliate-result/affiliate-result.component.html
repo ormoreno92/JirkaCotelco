@@ -44,7 +44,7 @@
   <hr class="hr-home">
   <div class="row" *ngIf="affiliates != 0 && affiliates != null; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
-    <div class="col-md-5 hotel-block" *ngFor="let affiliate of affiliates" style="cursor:pointer;">
+    <div class="col-md-5 hotel-block" *ngFor="let affiliate of affiliates | paginate: { itemsPerPage: 8, currentPage: p }" style="cursor:pointer;">
       <div class="row-fluid inner-h-p">
         <div class="col-md-3 inner-h">
           <img *ngIf="isNullOrEmpty(affiliate.logoUrl);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"
@@ -81,6 +81,10 @@
           RNT: {{affiliate.rnt}}
         </div>
       </div>
+    </div>
+    <div class="has-text-centered col-md-12">
+      <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+        screenReaderCurrentLabel=" "></pagination-controls>
     </div>
   </ng-template>
   <ng-template #elseBlock>

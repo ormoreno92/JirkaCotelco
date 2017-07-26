@@ -3,6 +3,9 @@ import { DataServiceService } from '../../data-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+declare var Jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-affiliate-result',
   templateUrl: './affiliate-result.component.html',
@@ -17,7 +20,7 @@ export class AffiliateResultComponent implements OnInit {
   ngOnInit() {
     const data = JSON.parse(localStorage.getItem('hotelSearchObj'));
     this.dataService.getAffiliateResult(data.deparment, data.city, data.keyword)
-      .subscribe(dataH => this.affiliates = dataH, error => console.log(error));
+      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
     this.dataService.getDepartments()
       .subscribe(dataH => this.departments = dataH, error => console.log(error));
   }
@@ -43,7 +46,7 @@ export class AffiliateResultComponent implements OnInit {
     const hotelSearchObj = { 'deparment': deparment, 'city': city, 'keyword': keyword };
     localStorage.setItem('hotelSearchObj', JSON.stringify(hotelSearchObj));
     this.dataService.getAffiliateResult(hotelSearchObj.deparment, hotelSearchObj.city, hotelSearchObj.keyword)
-      .subscribe(dataH => this.affiliates = dataH, error => console.log(error));
+      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
   }
 
   public isNullOrEmpty(data: any): boolean {
@@ -62,5 +65,19 @@ export class AffiliateResultComponent implements OnInit {
     const limit = 50;
     const trail = '...';
     return nText.length > limit ? nText.substring(0, limit) + trail : nText;
+  }
+
+  private PaginateContent(): void {
+    $('#easyPaginate').easyPaginate({
+      paginateElement: 'div',
+      elementsPerPage: 3,
+      effect: 'climb'
+    });
+    console.log($('#easyPaginate'));
+  }
+
+  private SetContent(dataH: any): void {
+    this.affiliates = dataH;
+    this.PaginateContent();
   }
 }
