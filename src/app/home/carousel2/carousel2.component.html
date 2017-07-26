@@ -4,7 +4,7 @@
   </h3>
   <hr class="hr-home">
   <div class="row-fluid">
-    <div class="col-md-2 col-md-offset-1 form-allies">
+    <div class="col-md-2 col-md-offset-1 form-allies form-allies2">
       <div class="row">
         <h5 class="title-home-forms">
           RESERVAS DE HOTELES
@@ -12,7 +12,7 @@
         <hr class="hr-home-forms">
       </div>
       <div class="row">
-        <form style="display: none !important;">
+        <form>
           <div class="col-md-12">
             <div class="form-group blue lefty">
               <div class="input-group">
@@ -34,11 +34,11 @@
       <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
-            <div class="slide-{{i}} slide-n" [ngStyle]="{'background-image':'url(' +image.url+ ')'}"> </div>
+            <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.logoUrl+ ')'}"> </div>
             <div class="container">
               <div class="carousel-caption">
-                <h1>{{image.title}}</h1>
-                <p>{{image.description}}</p>
+                <h1>{{image.tradename}}</h1>
+                <p>{{image.city}}</p>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
           <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
           <li *ngFor="let img of images; let i=index" data-target="#thumbnail-preview-indicators" attr.data-slide-to="{{i}}" class=""
             [ngClass]="{active:i==0}">
-            <img class="img-responsive" src="{{img.url}}">
+            <img class="img-responsive" src="{{img.logoUrl}}">
           </li>
           <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </ol>
@@ -61,23 +61,25 @@
         <hr class="hr-home-forms">
       </div>
       <div class="row">
-        <form style="display: none !important;">
+        <form #values="ngForm" (ngSubmit)="searchHotels(values)">
           <div class="col-md-12">
             <div class="form-group">
-              <select class="form-control">
+              <select class="form-control" name="dpt" (change)="onChangeDepartment($event.target.value)" ngModel>
                 <option value="" disabled>Departamento</option>
+                <option *ngFor="let dpt of departments; let i=index" value="{{dpt.code}}">{{dpt.name}}</option>
               </select>
             </div>
             <div class="form-group">
-              <select class="form-control">
+              <select class="form-control" name="ct" ngModel>
                 <option value="" disabled>Ciudad</option>
+                <option *ngFor="let city of cities; let i=index" value="{{city.code}}">{{city.name}}</option>
               </select>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="search" placeholder="Palabra Clave" />
+              <input type="text" class="form-control" id="search" placeholder="Palabra Clave" name="kw" ngModel />
             </div>
           </div>
-          <input type="submit" class="btn btn-primary center-block" value="BUSCAR" />
+          <button type="submit" class="btn btn-primary center-block" >BUSCAR</button>
         </form>
       </div>
     </div>

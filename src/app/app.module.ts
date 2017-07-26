@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
 import { DataServiceService } from './data-service.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +23,9 @@ import { EventsComponent } from './events/events.component';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { ConsultanciesComponent } from './consultancies/consultancies.component';
 import { AlliesComponent } from './allies/allies.component';
+import { AffiliatesModComponent } from './affiliates-mod/affiliates-mod.component';
+import { AffiliateResultComponent } from './affiliates-mod/affiliate-result/affiliate-result.component';
+import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,10 @@ import { AlliesComponent } from './allies/allies.component';
     EventsComponent,
     TrainingsComponent,
     ConsultanciesComponent,
-    AlliesComponent
+    AlliesComponent,
+    AffiliatesModComponent,
+    AffiliateResultComponent,
+    CustomAppPipesPipe
   ],
   imports: [
     BrowserModule,
@@ -95,9 +102,18 @@ import { AlliesComponent } from './allies/allies.component';
       {
         path: '\Aliados',
         component: AlliesComponent
+      },
+      {
+        path: '\Afiliados',
+        component: AffiliatesModComponent
+      },
+      {
+        path: '\BusquedaAfiliados',
+        component: AffiliateResultComponent
       }
     ]),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

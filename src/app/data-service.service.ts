@@ -19,7 +19,11 @@ export class DataServiceService {
     ListaAliados: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getPartnersCategories',
     AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate',
     ListaPublik: 'http://apps.jirka.co/JSih/webresources/PublikREST/getMessagues',
-    ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/PublicationsREST/getPublications'
+    ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/PublicationsREST/getPublications',
+    ListaDepartamentos: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getDepartaments',
+    ListaImagenesAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getRamdomAffiliates',
+    ListaCiudades: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getCities/',
+    ObtenerResultadoAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/searchHotels/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -46,6 +50,25 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
+  public getHomeAffiliatesImages(): Observable<AffiliatesHomeImages[]> {
+    return this.http.get(this.services.ListaImagenesAfiliados, this.options)
+      .map(res => res.json());
+  }
+
+  public getDepartments(): Observable<Departments[]> {
+    return this.http.get(this.services.ListaDepartamentos, this.options)
+      .map(res => res.json());
+  }
+
+  public getCities(id: any): Observable<Cities[]> {
+    return this.http.get(this.services.ListaCiudades + id, this.options)
+      .map(res => res.json());
+  }
+
+  public getAffiliateResult(dep: any, cit: any, key: any): Observable<AffiliateResult[]> {
+    return this.http.get(this.services.ObtenerResultadoAfiliados + dep + '/' + cit + '/' + key, this.options)
+      .map(res => res.json());
+  }
 }
 
 export class HomeBannerImages {
@@ -107,6 +130,28 @@ export class Capacitaciones {
   state: number;
 }
 
+export class Departments {
+  code: number;
+  name: string;
+  capital; string;
+  state: any;
+}
+
+export class Cities {
+  code: any;
+  name: string;
+  departament; string;
+  state: any;
+}
+
+export class AffiliatesHomeImages {
+  id: number;
+  tradename: string;
+  description: string;
+  logoUrl: string;
+  city: string;
+}
+
 export class ServiceUrl {
   ListaProyectos: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters';
   ListaNoticias: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNews';
@@ -119,4 +164,17 @@ export class ServiceUrl {
   AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters';
   ListaPublik: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters';
   ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/ChapterREST/getChapters';
+}
+
+export class AffiliateResult {
+  id: number;
+  establishmentName: string;
+  tradename: string;
+  description: string;
+  rnt: any;
+  rut: any;
+  webSite: string;
+  phone: string;
+  logoUrl: string;
+  commercialAddress: string;
 }

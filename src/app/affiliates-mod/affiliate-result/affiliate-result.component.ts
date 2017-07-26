@@ -1,25 +1,23 @@
-import { Router } from '@angular/router';
-declare var jQuery: any;
+import { CustomAppPipesPipe } from '../../custom-app-pipes.pipe';
 import { DataServiceService } from '../../data-service.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
-import { AppComponent } from '../../app.component';
 
 @Component({
-  selector: 'app-carousel2',
-  templateUrl: './carousel2.component.html',
-  styleUrls: ['./carousel2.component.less']
+  selector: 'app-affiliate-result',
+  templateUrl: './affiliate-result.component.html',
+  styleUrls: ['./affiliate-result.component.less']
 })
-export class Carousel2Component implements OnInit {
-  images;
-  model;
+export class AffiliateResultComponent implements OnInit {
+  affiliates = [];
   departments;
   cities;
   constructor(private dataService: DataServiceService, private router: Router) { }
+
   ngOnInit() {
-    this.dataService.getHomeAffiliatesImages()
-      .subscribe(dataH => this.images = dataH, error => console.log(error));
+    const data = JSON.parse(localStorage.getItem('hotelSearchObj'));
+    this.dataService.getAffiliateResult(data.deparment, data.city, data.keyword)
+      .subscribe(dataH => this.affiliates = dataH, error => console.log(error));
     this.dataService.getDepartments()
       .subscribe(dataH => this.departments = dataH, error => console.log(error));
   }
@@ -44,12 +42,25 @@ export class Carousel2Component implements OnInit {
     localStorage.removeItem('hotelSearchObj');
     const hotelSearchObj = { 'deparment': deparment, 'city': city, 'keyword': keyword };
     localStorage.setItem('hotelSearchObj', JSON.stringify(hotelSearchObj));
-    this.router.navigate(['./BusquedaAfiliados']);
+    this.dataService.getAffiliateResult(hotelSearchObj.deparment, hotelSearchObj.city, hotelSearchObj.keyword)
+      .subscribe(dataH => this.affiliates = dataH, error => console.log(error));
   }
 
-  private isNullOrEmpty(data: any): boolean {
+  public isNullOrEmpty(data: any): boolean {
     if (data === null || data === '') { return true };
     return false;
   }
-}
 
+  public goToHotel(id: any): void {
+    localStorage.removeItem('currentHotel');
+    localStorage.setItem('currentHotel', id);
+    this.router.navigate(['./Afiliados']);
+  }
+
+  public htmlToPlaintext(text) {
+    const nText = text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    const limit = 50;
+    const trail = '...';
+    return nText.length > limit ? nText.substring(0, limit) + trail : nText;
+  }
+}

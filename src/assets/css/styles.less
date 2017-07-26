@@ -3,132 +3,132 @@
 /*Nerd Colombia Custom Styles*/
 
 @body-bg: #ffffff;
-
 @brand-primary: #184A91;
 @brand-success: #F9B42B;
-@brand-info:    #5bc0de;
+@brand-info: #5bc0de;
 @brand-warning: #5cb85c;
-@brand-danger:  #d9534f;
-
+@brand-danger: #d9534f;
+@navbar-default-link-hover-bg: #F9B42B;
 @navbar-default-bg: #ffffff;
 @navbar-default-border: transparent;
-
 @text-color: #000000;
-
-@link-color:       @brand-primary;
+@link-color: @brand-primary;
 @link-hover-color: lighten(@link-color, 15%);
-
 @btn-default-color: White;
 @btn-primary-color: Black;
-@btn-default-bg:#184A91;
-@btn-primary-bg:#F9B42B;
-@btn-alert:#E02727;
-
-@navbar-default-color:#184A91;
-@navbar-default-link-color:#184A91;
+@btn-default-bg: #184A91;
+@btn-primary-bg: #F9B42B;
+@btn-alert: #E02727;
+@navbar-default-color: #184A91;
+@navbar-default-link-color: #184A91;
 @navbar-default-link-hover-color: lighten(@navbar-default-link-color, 15%);
-@navbar-default-color:#184A91;
-
+@navbar-default-color: #184A91;
 @default-animation-speed: 500ms;
-
 @nav-pills-border-radius: 0;
-
-body{
+body {
     overflow-x: hidden;
 }
 
 a {
-  color: @link-color;
-  text-decoration: none;
-
-  &:hover {
-    color: @link-hover-color;
+    color: @link-color;
     text-decoration: none;
-  }
+    &:hover {
+        color: @link-hover-color;
+        text-decoration: none;
+    }
 }
 
-@font-family-lato: "Lato", Helvetica, Arial, sans-serif;
+@font-family-lato: "Lato",
+Helvetica,
+Arial,
+sans-serif;
 @font-family-open-sans :"Open Sans";
 @font-family-base: @font-family-open-sans;
-
-@icon-font-path:          "../fonts/";
-@icon-font-name:          "glyphicons-halflings-regular";
-
+@icon-font-path: "../fonts/";
+@icon-font-name: "glyphicons-halflings-regular";
 img.centered {
-      max-width: 50px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -50px 0px 0px -50px;
+    max-width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0px 0px -50px;
 }
 
-.lato, h1, h4, h5{
+.lato,
+h1,
+h4,
+h5 {
     font-family: @font-family-lato;
 }
 
 @navbar-height: 5pc;
+body {
+    padding-top: 6pc;
+}
 
-body { padding-top: 6pc; }
-
-.blue-text{
+.blue-text {
     font-family: "Open Sans";
     font-size: 0.8em;
     font-weight: lighter;
     color: #184A91;
 }
 
-.inner-menu-upper{
+.inner-menu-upper {
     height: 5pc;
     background: transparent;
 }
-.inner-menu-upper-prop{
+
+.inner-menu-upper-prop {
     height: 100%;
     display: inline-block;
-    text-align: center; 
+    text-align: center;
     padding-top: 1em;
     white-space: nowrap;
 }
 
-.inner-menu-upper-prop > img{
+.inner-menu-upper-prop>img {
     vertical-align: middle;
     max-width: 2.5pc;
 }
 
-.upper-phone{
+.upper-phone {
     width: 1.5pc;
 }
-.bar{
+
+.bar {
     vertical-align: middle;
     width: 1px;
     display: inline-block;
     height: 75%;
     background: grey;
 }
-.upper-button{
+
+.upper-button {
     vertical-align: middle;
     display: inline-block;
 }
-.logo-menu{
+
+.logo-menu {
     max-width: 12pc;
 }
 
-.navbar-nav li a{
+.navbar-nav li a {
     color: #184A91;
     font-weight: bold;
     font-family: @font-family-open-sans;
 }
 
-.pse-button{
-        padding: 0;
+.pse-button {
+    padding: 0;
     margin-top: 1pc;
     margin-left: -0.5pc;
 }
 
-.log-in-btn{
-        padding-top: 1.2pc;
+.log-in-btn {
+    padding-top: 1.2pc;
 }
 
-.title-footer{
+.title-footer {
     font-weight: 700;
     border-bottom: 1px solid white;
     font-size: 1.2em;
@@ -136,33 +136,37 @@ body { padding-top: 6pc; }
     margin-bottom: 1pc;
 }
 
-footer{
+footer {
     background-color: @brand-primary;
     color: white;
     font-size: 0.9em;
     padding-top: 1pc;
-    > .container-fluid > .row > div > p {
+    >.container-fluid>.row>div>p {
         margin: 0 !important;
         font-weight: 500;
     }
-    > .container-fluid > .custom-row-footer > a{
+    >.container-fluid>.custom-row-footer>a {
         color: white;
         text-decoration: underline;
         text-align: center;
         padding-right: 0.5pc;
         line-height: 2pc;
     }
-    > .container-fluid > .custom-row-footer{        
+    >.container-fluid>.custom-row-footer {
         text-align: center;
     }
 }
-.custom-row-footer{
+
+.custom-row-footer {
     background-color: #305C9C;
     height: 2pc;
     margin-top: 2pc;
 }
 
-.twitter,.facebook,.youtube,.instagram {    
+.twitter,
+.facebook,
+.youtube,
+.instagram {
     width: 3.5pc;
     height: 3.5pc;
     border-radius: 50%;
@@ -173,46 +177,48 @@ footer{
     background-color: #53C3EC;
     background-image: url('../img/twitter.png');
     background-repeat: no-repeat;
-    background-size:80%;
-    background-position:center;
+    background-size: 80%;
+    background-position: center;
 }
 
 .facebook {
-    background-color: #0B72B5;  
+    background-color: #0B72B5;
     background-image: url('../img/facebook.png');
     background-repeat: no-repeat;
-    background-size:80%;
-    background-position:center;  
+    background-size: 80%;
+    background-position: center;
 }
 
 .youtube {
     background-color: #C01924;
     background-image: url('../img/youtube.png');
     background-repeat: no-repeat;
-    background-size:60%;
-    background-position:center;    
+    background-size: 60%;
+    background-position: center;
 }
 
 .instagram {
-    background-color: #FFFFFF;   
+    background-color: #FFFFFF;
     background-image: url('../img/instagram.png');
     background-repeat: no-repeat;
-    background-size:80%;
-    background-position:center; 
+    background-size: 80%;
+    background-position: center;
 }
+
 .container-marcas-cotelco {
     border-top: 1px gray dotted;
     text-align: center;
     padding-bottom: 4pc;
     padding-top: 2pc;
 }
+
 .title-home {
     color: #1A171C;
     text-align: center;
     font-weight: bold;
 }
 
-.hr-home{
+.hr-home {
     width: 10%;
     border-top: 2px solid #B1B3B4;
 }
@@ -222,8 +228,8 @@ footer{
     background: @brand-success;
 }
 
-.yellow-container{
-        min-height: 5pc;
+.yellow-container {
+    min-height: 5pc;
     padding-top: 1pc;
     padding-bottom: 1pc;
     background: @brand-success;
@@ -236,20 +242,20 @@ footer{
     background: @brand-primary;
 }
 
-.inner-menu-bar{
-        padding-top: 0.5pc;
+.inner-menu-bar {
+    padding-top: 0.5pc;
     padding-bottom: 0.5pc;
     cursor: pointer;
 }
 
-.inner-menu-bar > img {
+.inner-menu-bar>img {
     width: 100%;
     max-width: 4pc;
     display: block;
     margin: 0 auto;
 }
 
-.inner-menu-bar > span {
+.inner-menu-bar>span {
     color: white;
     font-size: 0.7em;
     text-transform: uppercase;
@@ -257,51 +263,51 @@ footer{
     display: block;
     margin: 0 auto;
     font-family: @font-family-lato;
-        padding-top: 0.3pc;
+    padding-top: 0.3pc;
 }
 
-.our-affiliates-home{
+.our-affiliates-home {
     background: #F3F3F2;
     padding-bottom: 2pc;
 }
 
-.cotelco-home-img{
-        position: absolute;
+.cotelco-home-img {
+    position: absolute;
     top: -2.5pc;
     width: 9pc;
     display: block;
     margin: 0 auto;
 }
 
-.title-home-forms{
+.title-home-forms {
     text-align: center;
     color: @brand-primary;
     font-weight: bolder;
 }
 
-.hr-home-forms{
+.hr-home-forms {
     width: 30%;
     border-top: 1px solid #B1B3B4;
 }
 
-.form-allies{
-        background: white;
+.form-allies {
+    background: white;
     height: 18pc;
     padding-top: 1pc;
     margin-top: 2pc;
     width: 16%;
 }
 
-.lefty{
-    display: inline-block;    
+.lefty {
+    display: inline-block;
 }
 
-.lefty-input{
-display: inline-block;
+.lefty-input {
+    display: inline-block;
     width: 89%;
 }
 
-.blue{
+.blue {
     color: @brand-info;
 }
 
@@ -315,7 +321,7 @@ display: inline-block;
     margin-top: 4%;
     position: relative;
     float: left;
-    color: white;    
+    color: white;
     text-align: center;
     font-family: @font-family-lato;
     font-size: 2em;
@@ -325,73 +331,77 @@ display: inline-block;
 .title-inner-section img {
     display: inline-block;
     width: 10%;
-        max-width: 2.5pc;
+    max-width: 2.5pc;
     vertical-align: sub;
 }
+
 .title-inner-section span {
     display: inline-block;
 }
 
-.about-img{
+.about-img {
     background-color: transparent;
     background-image: url('../img/about.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position-y: 40%;
 }
 
-.about-section{
-    border: 1px solid #5A5A5B;
+.about-section {
+    border: 1px solid #a3a3a3;
     height: auto;
     min-height: 19pc;
     box-shadow: 0 2px 4px 0 #a3a3a3;
 }
 
-.about-gen-section{
+.about-gen-section {
     padding-top: 3pc;
     padding-bottom: 3pc;
 }
-.training-gen-section{
+
+.training-gen-section {
     margin-top: 7pc;
     margin-bottom: 2pc;
 }
-.lefty-menu{
+
+.lefty-menu {
     text-align: center;
 }
 
-.affiliate-img{
+.affiliate-img {
     background-color: transparent;
     background-image: url('../img/afiliese.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position-y: 60%;
 }
 
-.publicaciones-img{
+.publicaciones-img {
     background-color: transparent;
     background-image: url('../img/publicaciones.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position-y: 60%;
 }
 
-.capacitaciones-img{
+.capacitaciones-img {
     background-color: transparent;
     background-image: url('../img/capacitacionesBg.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position-y: 60%;
 }
 
-.consultorias-img{
+.consultorias-img {
     background-color: transparent;
     background-image: url('../img/consultoriasBg.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     background-position-y: 60%;
 }
+
 .jumbotron {
-    padding-top: 0.5pc;    
+    padding-top: 0.5pc;
     padding-bottom: 0.5pc;
     padding-left: 0.5pc;
     padding-right: 0.5pc;
@@ -400,21 +410,22 @@ display: inline-block;
     background-color: #F8F7F7;
 }
 
-.custom-jumbotrom-affiliate, .custom-jumbotrom-affiliate > p{
+.custom-jumbotrom-affiliate,
+.custom-jumbotrom-affiliate>p {
     color: #184A91;
     font-size: 1em;
 }
 
-.label-form{
-color: #88898B;
+.label-form {
+    color: #88898B;
 }
 
-.mandatory{
-color: red !important;
+.mandatory {
+    color: red !important;
 }
 
 select[class^="label-form"] {
-        display: block;
+    display: block;
     width: 100%;
     height: 34px;
     padding: 6px 12px;
@@ -429,10 +440,9 @@ select[class^="label-form"] {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.btn-alert{
+.btn-alert {
     background: @btn-alert;
     color: white;
-    
 }
 
 .full-title {
@@ -448,28 +458,54 @@ select[class^="label-form"] {
     font-weight: bolder;
 }
 
+.righty-side {
+    display: none;
+}
+
+.inner-form-control {
+    margin: 0 !important;
+    float: left;
+}
+
+.inner-search-txt {
+    width: 87%;
+}
+
+.inner-search-btn {
+    width: 13%;
+    height: 2.1pc;
+    background: #FFFFFF;
+    border: 1px solid #87888A;
+    border-left: 0;
+    color: #87888A;
+    font-size: 1.5em;
+    text-indent: -1px;
+    line-height: 1px;
+}
+
+
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 
 @media (max-width: @grid-float-breakpoint-max) {
-    .just-for-space{
+    .just-for-space {
         display: none !important;
     }
-    .navbar-collapse{
+    .navbar-collapse {
         width: 100%;
     }
-    .navbar-nav{
+    .navbar-nav {
         height: auto !important;
     }
-    .inner-menu-upper-prop { 
+    .inner-menu-upper-prop {
         padding-top: 0;
     }
     .col-md-offset-1 {
         margin-left: 0 !important;
     }
-    .custom-marcas-control{
+    .custom-marcas-control {
         display: block;
     }
-    .loguito-cot{
+    .loguito-cot {
         display: none;
     }
     .inner-menu-bar {
@@ -480,46 +516,57 @@ select[class^="label-form"] {
         margin-top: 0;
         width: 100%;
     }
-    .home-hotels-banne{
+    .home-hotels-banne {
         width: 100% !important;
     }
     .title-inner-section {
-        width: 100%;        
+        width: 100%;
     }
     .title-inner-section img {
         width: 5%;
     }
+    .lefty-side {
+        display: none;
+    }
+    .righty-side {
+        display: block;
+    }
+    .consulting-menu-parent {
+        height: auto !important;
+    }
+    .hr-home {
+        width: 40%;
+    }
 }
 
 @media (max-width: @screen-xs) {
-    .inner-menu-upper {    
+    .inner-menu-upper {
         margin-left: -8%;
     }
-    footer{
-    
-    > .container-fluid > .custom-row-footer > a{
-        display: block;
-        margin-bottom: 0.5pc;
+    footer {
+        >.container-fluid>.custom-row-footer>a {
+            display: block;
+            margin-bottom: 0.5pc;
+        }
+        >.container-fluid>.custom-row-footer {
+            height: auto;
+        }
     }
-    > .container-fluid > .custom-row-footer{
-        height: auto;
+    .container-marcas-cotelco {
+        display: none;
     }
+    .form-allies2 {
+        display: none;
     }
-.container-marcas-cotelco{
-    display: none;
 }
-.form-allies {
-    display: none;
-}
-}   
 
 @media (min-width: @screen-lg) {
-    .navbar-nav {    
-    float: right;
-    padding-right: 3.4pc;
+    .navbar-nav {
+        float: right;
+        padding-right: 3.4pc;
     }
-    .magic-container{
-            float: right;
-            padding-right: 2pc;
+    .magic-container {
+        float: right;
+        padding-right: 2pc;
     }
 }

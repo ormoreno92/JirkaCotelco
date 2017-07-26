@@ -4516,7 +4516,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #113465;
-  background-color: transparent;
+  background-color: #F9B42B;
 }
 .navbar-default .navbar-text {
   color: #184A91;
@@ -4527,7 +4527,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #236bd3;
-  background-color: transparent;
+  background-color: #F9B42B;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -4568,7 +4568,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #236bd3;
-    background-color: transparent;
+    background-color: #F9B42B;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
@@ -7044,7 +7044,7 @@ footer > .container-fluid > .custom-row-footer {
   background-position-y: 40%;
 }
 .about-section {
-  border: 1px solid #5A5A5B;
+  border: 1px solid #a3a3a3;
   height: auto;
   min-height: 19pc;
   box-shadow: 0 2px 4px 0 #a3a3a3;
@@ -7139,6 +7139,27 @@ select[class^="label-form"] {
   color: #184A91;
   font-weight: bolder;
 }
+.righty-side {
+  display: none;
+}
+.inner-form-control {
+  margin: 0 !important;
+  float: left;
+}
+.inner-search-txt {
+  width: 87%;
+}
+.inner-search-btn {
+  width: 13%;
+  height: 2.1pc;
+  background: #FFFFFF;
+  border: 1px solid #87888A;
+  border-left: 0;
+  color: #87888A;
+  font-size: 1.5em;
+  text-indent: -1px;
+  line-height: 1px;
+}
 /*Here we gonna define everything that happens when the menu responsive is activated*/
 @media (max-width: 1023px) {
   .just-for-space {
@@ -7179,6 +7200,18 @@ select[class^="label-form"] {
   .title-inner-section img {
     width: 5%;
   }
+  .lefty-side {
+    display: none;
+  }
+  .righty-side {
+    display: block;
+  }
+  .consulting-menu-parent {
+    height: auto !important;
+  }
+  .hr-home {
+    width: 40%;
+  }
 }
 @media (max-width: 480px) {
   .inner-menu-upper {
@@ -7194,7 +7227,7 @@ select[class^="label-form"] {
   .container-marcas-cotelco {
     display: none;
   }
-  .form-allies {
+  .form-allies2 {
     display: none;
   }
 }
