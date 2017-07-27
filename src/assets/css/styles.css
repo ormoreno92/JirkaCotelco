@@ -4516,7 +4516,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #113465;
-  background-color: #F9B42B;
+  background-color: transparent;
 }
 .navbar-default .navbar-text {
   color: #184A91;
@@ -6934,6 +6934,16 @@ footer > .container-fluid > .custom-row-footer {
   text-align: center;
   font-weight: bold;
 }
+.title-inner {
+  color: #184A91;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: -1pc;
+}
+.hr-inner {
+  width: 10%;
+  border-top: 1px solid #C6C7C8;
+}
 .hr-home {
   width: 10%;
   border-top: 2px solid #B1B3B4;
@@ -7063,6 +7073,13 @@ footer > .container-fluid > .custom-row-footer {
 .affiliate-img {
   background-color: transparent;
   background-image: url('../img/afiliese.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 60%;
+}
+.affiliate2-img {
+  background-color: transparent;
+  background-image: url('../img/affiliate.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-y: 60%;

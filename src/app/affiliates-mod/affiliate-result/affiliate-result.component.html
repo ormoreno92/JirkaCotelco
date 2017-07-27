@@ -1,6 +1,5 @@
-<div class="row header-inner-sections capacitaciones-img">
+<div class="row header-inner-sections affiliate-img">
   <div class="title-inner-section">
-    <img src="./assets/img/capacitaciones.png" alt="Publicaciones">
     <span>BUSCAR HOTELES</span>
   </div>
 </div>
@@ -42,9 +41,10 @@
     RESULTADOS
   </h3>
   <hr class="hr-home">
-  <div class="row" *ngIf="affiliates != 0 && affiliates != null; then thenBlock else elseBlock"></div>
+  <div class="row" *ngIf="affiliates?.length > 0; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
-    <div class="col-md-5 hotel-block" *ngFor="let affiliate of affiliates | paginate: { itemsPerPage: 8, currentPage: p }" style="cursor:pointer;">
+    <div class="col-md-5 hotel-block" *ngFor="let affiliate of affiliates | paginate: { itemsPerPage: 8, currentPage: p }" style="cursor:pointer;"
+      (click)="goToHotel(affiliate.id)">
       <div class="row-fluid inner-h-p">
         <div class="col-md-3 inner-h">
           <img *ngIf="isNullOrEmpty(affiliate.logoUrl);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"
@@ -63,17 +63,17 @@
       <div class="row-fluid row-inner-h-r-2">
         <div class="col-md-11 inner-h-d">
           <div class="row-fluid inner-h-d-i">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <i class="glyphicon glyphicon-earphone"></i>
-              <span>{{affiliate.phone}}</span>
+              <span>{{affiliate.phone | customAppPipes:13}}</span>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <i class="glyphicon glyphicon-map-marker"></i>
-              <span>{{affiliate.commercialAddress}}</span>
+              <span>{{affiliate.commercialAddress | customAppPipes:15}}</span>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <i class="glyphicon glyphicon-envelope"></i>
-              <span>{{affiliate.emailAddress}}</span>
+              <span>{{affiliate.emailAddress | customAppPipes:15}}</span>
             </div>
           </div>
         </div>

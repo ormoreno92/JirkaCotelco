@@ -73,7 +73,6 @@ export class AffiliateResultComponent implements OnInit {
       elementsPerPage: 3,
       effect: 'climb'
     });
-    console.log($('#easyPaginate'));
   }
 
   private SetContent(dataH: any): void {

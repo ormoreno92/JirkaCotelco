@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
 import { DataServiceService } from './data-service.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -113,7 +114,11 @@ import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
         component: AffiliateResultComponent
       }
     ]),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAoq2mhUKq6Tmor5ud7_X9aJAC3X8AYgTU',
+      language: 'es'
+    })
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

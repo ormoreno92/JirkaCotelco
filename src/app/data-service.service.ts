@@ -17,7 +17,7 @@ export class DataServiceService {
     ListaEventos: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvents',
     ListaDocumentos: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getDocuments',
     ListaAliados: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getPartnersCategories',
-    AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate',
+    AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate/',
     ListaPublik: 'http://apps.jirka.co/JSih/webresources/PublikREST/getMessagues',
     ListaPublicaciones: 'http://apps.jirka.co/JSih/webresources/PublicationsREST/getPublications',
     ListaDepartamentos: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getDepartaments',
@@ -67,6 +67,11 @@ export class DataServiceService {
 
   public getAffiliateResult(dep: any, cit: any, key: any): Observable<AffiliateResult[]> {
     return this.http.get(this.services.ObtenerResultadoAfiliados + dep + '/' + cit + '/' + key, this.options)
+      .map(res => res.json());
+  }
+
+  public getHotelDetails(hotelId: any): Observable<any> {
+    return this.http.get(this.services.AfiliadoHotel + hotelId, this.options)
       .map(res => res.json());
   }
 }
@@ -177,4 +182,25 @@ export class AffiliateResult {
   phone: string;
   logoUrl: string;
   commercialAddress: string;
+}
+
+export class Affiliate extends AffiliateResult {
+  cotelcoCode: string;
+  legalRepresentative: string;
+  cellPhone: string;
+  emailAddress: string;
+  emailReservation: string;
+  latitude: any;
+  longitude: any;
+  correspondence: any;
+  averageRate: any;
+  numberRooms: any;
+  numerBeds: any;
+  eventRooms: any;
+  eventRoomsCapacity: any;
+  numberEmployees: any;
+  enrollmentDate: any;
+  disenrollmentDate: any;
+  logoUrl: any;
+  photo: any;
 }
