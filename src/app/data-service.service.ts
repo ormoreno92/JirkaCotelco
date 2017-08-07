@@ -23,7 +23,14 @@ export class DataServiceService {
     ListaDepartamentos: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getDepartaments',
     ListaImagenesAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getRamdomAffiliates',
     ListaCiudades: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getCities/',
-    ObtenerResultadoAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/searchHotels/'
+    ObtenerResultadoAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/searchHotels/',
+    ObtenerSubCategorias: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getSubcategories',
+    validateRnt: 'http://apps.jirka.co/JSih/webresources/ValidatorREST/validateRntIfExist/',
+    validateEmail: 'http://apps.jirka.co/JSih/webresources/ValidatorREST/validateMailIfExist/',
+    getFuncs: 'http://apps.jirka.co/JSih/webresources/UserREST/getFunctionariesCotelco',
+    getAlliesImages: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getCommercialAllie',
+    getConsultancies: 'http://apps.jirka.co/JSih/webresources/ConsultancyREST/getConsultancies',
+    getEventDetails: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvent/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -60,6 +67,11 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
+  public getEvents(): Observable<Departments[]> {
+    return this.http.get(this.services.ListaEventos, this.options)
+      .map(res => res.json());
+  }
+
   public getCities(id: any): Observable<Cities[]> {
     return this.http.get(this.services.ListaCiudades + id, this.options)
       .map(res => res.json());
@@ -70,8 +82,58 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
+  public getEventResult(dep: any, cit: any, key: any): Observable<any[]> {
+    return this.http.get(this.services.ListaEventos + dep + '/' + cit + '/' + key, this.options)
+      .map(res => res.json());
+  }
+
   public getHotelDetails(hotelId: any): Observable<any> {
     return this.http.get(this.services.AfiliadoHotel + hotelId, this.options)
+      .map(res => res.json());
+  }
+
+  public getEventDetails(eventId: any): Observable<any> {
+    return this.http.get(this.services.getEventDetails + eventId, this.options)
+      .map(res => res.json());
+  }
+
+  public getSubcategories(): Observable<any> {
+    return this.http.get(this.services.ObtenerSubCategorias, this.options)
+      .map(res => res.json());
+  }
+
+  public getChapters(): Observable<any> {
+    return this.http.get(this.services.ListaProyectos, this.options)
+      .map(res => res.json());
+  }
+
+  public validateRnt(rnt: any): Observable<any> {
+    return this.http.get(this.services.validateRnt + rnt, this.options)
+      .map(res => res.json());
+  }
+
+  public validateEmail(email: any): Observable<any> {
+    return this.http.get(this.services.validateEmail + email, this.options)
+      .map(res => res.json());
+  }
+
+  public getFuncs(): Observable<any> {
+    return this.http.get(this.services.getFuncs, this.options)
+      .map(res => res.json());
+  }
+
+  public getAlliesCats(): Observable<any> {
+    return this.http.get(this.services.ListaAliados, this.options)
+      .map(res => res.json());
+  }
+
+  public getAlliesImages(): Observable<any> {
+    return this.http.get(this.services.getAlliesImages, this.options)
+      .map(res => res.json());
+  }
+
+  public getConsultancies(): Observable<any> {
+    return this.http.get(this.services.getConsultancies, this.options)
       .map(res => res.json());
   }
 }

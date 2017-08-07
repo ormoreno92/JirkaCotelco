@@ -27,6 +27,7 @@ import { AlliesComponent } from './allies/allies.component';
 import { AffiliatesModComponent } from './affiliates-mod/affiliates-mod.component';
 import { AffiliateResultComponent } from './affiliates-mod/affiliate-result/affiliate-result.component';
 import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
+import { EventsResultComponent } from './events/events-result/events-result.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
     AlliesComponent,
     AffiliatesModComponent,
     AffiliateResultComponent,
-    CustomAppPipesPipe
+    CustomAppPipesPipe,
+    EventsResultComponent
   ],
   imports: [
     BrowserModule,
@@ -90,8 +92,12 @@ import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
         component: PressComponent
       },
       {
-        path: '\Eventos',
+        path: '\Evento',
         component: EventsComponent
+      },
+      {
+        path: '\Eventos',
+        component: EventsResultComponent
       },
       {
         path: '\Capacitaciones',

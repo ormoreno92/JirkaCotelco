@@ -14,19 +14,27 @@
     <div class="panel-heading">Datos del establecimiento</div>
     <div class="panel-body">
       <div class="jumbotron custom-jumbotrom-affiliate">
-        <p>Los establecimientos de alojamiento y hospedaje interesados en pertenecer a la Asociación Hotelera de Colombia COTELCO
-          Capítulo Cartagena deben seguir los siguientes pasos:</p>
+        <p>Los establecimientos de alojamiento y hospedaje interesados en pertenecer a la Asociación Hotelera y Turística de
+          Colombia - COTELCO deben seguir estos pasos: </p>
         <ol>
-          <li>Se realizará una visita de reconocimiento a las instalaciones del establecimiento de alojamiento y hospedaje por
-            parte de la Dirección y subdirección del Capítulo</li>
-          <li>Se realizará una visita de reconocimiento a las instalaciones del establecimiento de alojamiento y hospedaje por
-            parte de la Dirección y subdirección del Capítulo</li>
-          <li>Se realizará una visita de reconocimiento a las instalaciones del establecimiento de alojamiento y hospedaje por
-            parte de la Dirección y subdirección del Capítulo</li>
-          <li>Se realizará una visita de reconocimiento a las instalaciones del establecimiento de alojamiento y hospedaje por
-            parte de la Dirección y subdirección del Capítulo</li>
-          <li>Se realizará una visita de reconocimiento a las instalaciones del establecimiento de alojamiento y hospedaje por
-            parte de la Dirección y subdirección del Capítulo</li>
+          <li>Diligenciar el formulario de registro a través de la página web</li>
+          <li>Diligenciar y enviar los documentos requeridos</li>
+
+          <ol type="a">
+            <li>Certificado de existencia y representación legal expedido por la Cámara de Comercio correspondiente con vigencia
+              inferior a 30 días.</li>
+            <li>Registro Único Tributario – RUT.</li>
+            <li>Registro Nacional de Turismo vigente.</li>
+            <li>Cédula de ciudadanía del Representante Legal.</li>
+            <li>Certificado de Declaración de Origen de Fondos y Actividades Lícitas.</li>
+            <li>Acta de compromiso de afiliación.</li>
+            <li>Autorización tratamiento datos.</li>
+          </ol>
+
+          <li>Visita de reconocimiento de las instalaciones del establecimiento por parte de COTELCO. </li>
+          <li>Revisión y aprobación por la Junta Directiva del capítulo regional</li>
+          <li>Aprobación final por la Junta Directiva COTELCO Nacional. Necesito en que los documentos e, f y g, se tenga la
+            posibilidad de descargar el documento para que lo diligencien.</li>
         </ol>
       </div>
       <form class="affiliate-form">
@@ -36,53 +44,55 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="rz" class="label-form">Razón social<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rz">
+                  <input type="text" class="form-control" id="rz" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="nc" class="label-form">Nombre Comercial<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="nc">
+                  <input type="text" class="form-control" id="nc" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="rnt" class="label-form">RNT<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rnt">
+                  <input type="text" class="form-control" id="rnt" (focusout)="validateRnt($event)" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="rut" class="label-form">RUT<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rut">
+                  <input type="text" class="form-control" id="rut" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="rl" class="label-form">Representante Legal<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rl">
+                  <input type="text" class="form-control" id="rl" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="sbct" class="label-form">Subcategoría<span class="mandatory">(*)</span></label>
-                  <select id="sbct" class="label-form">
+                  <select id="sbct" class="label-form" required>
                     <option value="" disabled>Seleccione una opción</option>
+                    <option *ngFor="let subCategorie of subCategories; let i=index" value="{{subCategorie.id}}">{{subCategorie.name}}</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="capi" class="label-form">Capítulo<span class="mandatory">(*)</span></label>
-                  <select id="capi" class="label-form">
+                  <select id="capi" class="label-form" required>
                     <option value="" disabled>Seleccione una opción</option>
+                    <option *ngFor="let chapter of chapters; let i=index" value="{{chapter.id}}">{{chapter.name}}</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form-group">
                   <label for="address" class="label-form">Dirección<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="address">
+                  <input type="text" class="form-control" id="address" required>
                 </div>
               </div>
             </div>
@@ -105,24 +115,25 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="email" class="label-form">Correo<span class="mandatory">(*)</span></label>
-                  <input type="mail" class="form-control" id="email">
+                  <input type="mail" class="form-control" id="email" (focusout)="validateEmail($event)" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="password" class="label-form">Contraseña<span class="mandatory">(*)</span></label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="confirm" class="label-form">Confirmar<span class="mandatory">(*)</span></label>
-                  <input type="password" class="form-control" id="confirm">
+                  <input type="password" class="form-control" id="confirm" required>
                 </div>
               </div>
             </div>
             <div class="row footer-form-afilliate">
-              <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf" target="_blank">Política de Tratamiento de Datos</a>:</p>
+              <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf"
+                  target="_blank">Política de Tratamiento de Datos</a>:</p>
               <div class="checkbox">
                 <label><input type="checkbox" value="">Acepto</label>
               </div>

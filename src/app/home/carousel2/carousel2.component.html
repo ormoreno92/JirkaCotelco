@@ -34,7 +34,7 @@
       <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
-            <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')'}"> </div>
+            <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.photo+ ')'}"> </div>
             <div class="container">
               <div class="carousel-caption">
                 <h1>{{image.tradename}}</h1>
@@ -46,7 +46,7 @@
           <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
           <li *ngFor="let img of images; let i=index" data-target="#thumbnail-preview-indicators" attr.data-slide-to="{{i}}" class=""
             [ngClass]="{active:i==0}">
-            <img class="img-responsive" src="{{img.image}}">
+            <img class="img-responsive" src="{{img.photo}}">
           </li>
           <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </ol>
@@ -78,7 +78,7 @@
               <input type="text" class="form-control" id="search" placeholder="Palabra Clave" name="kw" ngModel />
             </div>
           </div>
-          <button type="submit" class="btn btn-primary center-block" >BUSCAR</button>
+          <button type="submit" class="btn btn-primary center-block">BUSCAR</button>
         </form>
       </div>
     </div>

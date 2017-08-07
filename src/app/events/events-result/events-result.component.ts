@@ -7,22 +7,23 @@ declare var Jquery: any;
 declare var $: any;
 
 @Component({
-  selector: 'app-affiliate-result',
-  templateUrl: './affiliate-result.component.html',
-  styleUrls: ['./affiliate-result.component.less']
+  selector: 'app-events-result',
+  templateUrl: './events-result.component.html',
+  styleUrls: ['./events-result.component.less']
 })
-export class AffiliateResultComponent implements OnInit {
-  affiliates = [];
+export class EventsResultComponent implements OnInit {
   departments;
   cities;
+  events = [];
+
   constructor(private dataService: DataServiceService, private router: Router) { }
 
   ngOnInit() {
-    const data = JSON.parse(localStorage.getItem('hotelSearchObj'));
-    this.dataService.getAffiliateResult(data.deparment, data.city, data.keyword)
-      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
+    const data = JSON.parse(localStorage.getItem('eventSearchObj'));
     this.dataService.getDepartments()
       .subscribe(dataH => this.departments = dataH, error => console.log(error));
+    this.dataService.getEvents()
+      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
   }
 
   public onChangeDepartment(code: number): void {
@@ -30,7 +31,7 @@ export class AffiliateResultComponent implements OnInit {
       .subscribe(dataH => this.cities = dataH, error => console.log(error));
   }
 
-  public searchHotels(data): void {
+  public searchEvents(data): void {
     let deparment = null;
     let city = null;
     let keyword = null;
@@ -42,10 +43,10 @@ export class AffiliateResultComponent implements OnInit {
       alert('Seleccione un departamento y/o una ciudad y agregue si desea una palabra clave.');
       return;
     }
-    localStorage.removeItem('hotelSearchObj');
-    const hotelSearchObj = { 'deparment': deparment, 'city': city, 'keyword': keyword };
-    localStorage.setItem('hotelSearchObj', JSON.stringify(hotelSearchObj));
-    this.dataService.getAffiliateResult(hotelSearchObj.deparment, hotelSearchObj.city, hotelSearchObj.keyword)
+    localStorage.removeItem('eventSearchObj');
+    const eventSearchObj = { 'deparment': deparment, 'city': city, 'keyword': keyword };
+    localStorage.setItem('eventSearchObj', JSON.stringify(eventSearchObj));
+    this.dataService.getEventResult(eventSearchObj.deparment, eventSearchObj.city, eventSearchObj.keyword)
       .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
   }
 
@@ -54,10 +55,10 @@ export class AffiliateResultComponent implements OnInit {
     return false;
   }
 
-  public goToHotel(id: any): void {
-    localStorage.removeItem('currentHotel');
-    localStorage.setItem('currentHotel', id);
-    this.router.navigate(['./Afiliados']);
+  public goToEvent(id: any): void {
+    localStorage.removeItem('eventSearchObj');
+    localStorage.setItem('eventSearchObj', id);
+    this.router.navigate(['./Evento']);
   }
 
   public htmlToPlaintext(text, limit) {
@@ -75,7 +76,8 @@ export class AffiliateResultComponent implements OnInit {
   }
 
   private SetContent(dataH: any): void {
-    this.affiliates = dataH;
+    console.log(dataH);
+    this.events = dataH;
     this.PaginateContent();
   }
 }

@@ -1,9 +1,10 @@
 .inner-results-hotel-image {
     display: block;
-    width: 100%;
-    max-width: 7pc;
-    height: 100%;
-    max-height: 7pc;
+    width: 9pc;
+    height: auto;
+    margin-left: -10%;
+    margin-top: -10%;
+    max-height: 6.5pc;
 }
 
 .inner-results-hotel-name {
@@ -15,11 +16,20 @@
     margin-top: 0pc;
 }
 
-.inner-results-hotel-desc {
+.inner-results-hotel-desc,
+.inner-results-hotel-desc>*,
+.inner-results-hotel-desc>font,
+.inner-results-hotel-desc>div>font {
     font-family: lato !important;
     color: #555555 !important;
     text-align: justify !important;
-    text-transform: lowercase;
+    text-transform: lowercase !important;
+    font-size: 0.8em !important;
+    max-height: 3pc;
+    display: block;
+    margin: 0 auto;
+    margin-top: -3%;
+    overflow: hidden !important;
 }
 
 .inner-h {
@@ -70,23 +80,43 @@
     font-size: 0.8em;
 }
 
-
-/* Cosmetic only */
-
-/*#easyPaginate {
-    width: 300px;
+@media (max-width: 992px) {
+    .inner-results-hotel-image {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-top: 0;
+        float: left;
+        max-height: inherit;
+    }
+    .inner-results-hotel-name {
+        margin-top: 2pc;
+    }
+    .hotel-block[_ngcontent-c3] {
+        margin-left: 0;
+        height: auto;
+        max-height: 50pc;
+    }
+    .inner-results-hotel-desc,
+    .inner-results-hotel-desc>*,
+    .inner-results-hotel-desc>font,
+    .inner-results-hotel-desc>div>font {
+        margin-top: 0;
+    }
+    .inner-h-d {
+        height: auto;
+    }
+    .rnt-floating[_ngcontent-c3] {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .inner-h-p {
+        float: none;
+    }
+    .row-fluid.inner-h-d-i>div>i,
+    .row-fluid.inner-h-d-i>div>span {
+        font-size: 1em;
+    }
 }
-
-#easyPaginate img {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.easyPaginateNav a {
-    padding: 5px;
-}
-
-.easyPaginateNav a.current {
-    font-weight: bold;
-    text-decoration: underline;
-}*/

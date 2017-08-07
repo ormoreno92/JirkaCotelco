@@ -22,4 +22,7 @@ export class HomeComponent implements OnInit {
   public RedirectTo(url: string): void {
     this.router.navigate(['./' + url]);
   }
+  public RedirectToExternal(url: string): void {
+    window.open(url, '_blank');
+  }
 }

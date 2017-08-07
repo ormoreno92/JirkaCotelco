@@ -26,6 +26,7 @@ export class AffiliatesModComponent implements OnInit {
     this.services = this.hotel.servicesList;
     this.lat = this.hotel.latitude;
     this.lng = this.hotel.longitude;
+    this.hotel.webReservation = '';
   }
   public htmlToPlaintext(text) {
     const nText = text ? String(text).replace(/<[^>]+>/gm, '') : '';

@@ -1,55 +1,20 @@
-.tab-content>div {
-    padding: 2pc;
-    font-size: 1.1em;
-    text-align: justify;
-}
-
-.inner-pane-props h2 {
-    font-family: lato;
-    font-weight: bold;
-}
-
-.inner-pane-props img {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    margin-bottom: 1pc;
-}
-
-.inner-pane-props p {
-    font-family: lato;
-    font-weight: lighter;
-}
-
-.inner-pane-props:nth-child(1) h2 {
-    color: #f9b42a;
-}
-
-.inner-pane-props:nth-child(2) h2 {
-    color: #184a91;
-}
-
-.inner-pane-props:nth-child(4) h2 {
-    color: #e02727;
-}
-
 .inner-results-hotel-image {
     display: block;
-    width: 9pc;
+    width: 100%;
     height: auto;
-    margin-left: -10%;
-    margin-top: -10%;
-    max-height: 6.5pc;
+    margin-left: 0;
+    margin-top: 0;
+    max-height: 5pc;
 }
 
 .inner-results-hotel-name {
     font-family: lato;
     color: #184A91;
-    font-weight: lighter;
     border-bottom: 1px solid #184A91;
     padding-bottom: 0.5pc;
     margin-top: 0pc;
-    margin-bottom: 1pc;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .inner-results-hotel-desc,
@@ -60,14 +25,24 @@
     color: #555555 !important;
     text-align: justify !important;
     text-transform: lowercase !important;
-    font-size: 0.8em !important;    
+    font-size: 0.8em !important;
+    max-height: 3pc;
     display: block;
-    margin: 0 auto;    
+    margin: 0 auto;
+    margin-top: -3%;
     overflow: hidden !important;
 }
 
 .inner-h {
     height: 5pc;
+    margin-bottom: 1pc;
+}
+
+span.inner-date {
+    color: #e74c20;
+    display: block;
+    text-align: right;
+    font-weight: bold;
 }
 
 .hotel-block {
@@ -75,7 +50,13 @@
     margin-top: 1pc;
     border: 1px solid #c3c3c3;
     padding: 0;
-    height: auto;    
+    margin-left: 5%;
+    height: 17pc;
+    max-height: 20pc;
+}
+
+.inner-events-r-btn {
+    margin-top: 1pc;
 }
 
 .inner-h-p {
@@ -86,25 +67,16 @@
 }
 
 .inner-h-d {
-    height: auto;
+    height: 2.5pc;
     background: #FFD550;
     text-align: left;
     line-height: 2.5pc;
     color: black;
 }
 
-.charge-func {
-    text-align: right;
-    color: red;
-    display: block;
-    width: 100%;
-    margin-bottom: 1pc;
-        margin-top: -1pc;
-}
-
 .rnt-floating {
     position: absolute;
-    bottom: 5%;
+    bottom: 7%;
     right: 0;
     height: 0.3pc !important;
     width: 7pc;
@@ -121,6 +93,15 @@
     font-size: 0.8em;
 }
 
+.inner-event-hr {
+    border-top: 2px solid #eeeeee;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1pc;
+    margin-bottom: 1pc;
+    width: 80%;
+}
+
 @media (max-width: 992px) {
     .inner-results-hotel-image {
         width: 100%;
@@ -131,12 +112,12 @@
         max-height: inherit;
     }
     .inner-results-hotel-name {
-        margin-top: 2pc;
+        margin-top: 0;
     }
     .hotel-block[_ngcontent-c3] {
         margin-left: 0;
-        height: auto;
-        max-height: 50pc;
+        height: 20pc;
+        max-height: 20pc;
     }
     .inner-results-hotel-desc,
     .inner-results-hotel-desc>*,

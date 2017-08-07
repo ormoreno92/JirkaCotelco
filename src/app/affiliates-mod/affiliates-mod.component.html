@@ -24,7 +24,7 @@
 <div class="container-fluid">
   <div class="row white-row">
     <div class="container custom-portait-container">
-      <div class="col-md-3 lefty-siding">
+      <div class="col-md-3 lefty-siding lefty-side">
         <div class="row-fluid">
           <h5 class="title-inner">
             CONTACTO
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="row-fluid">
-          <a href="javascript:void(0);'" class="btn btn-primary center-block">RESERVAR</a>
+          <a href="{{hotel.webReservation}}" class="btn btn-primary center-block" ng-hide="!hotel.webReservation">RESERVAR</a>
         </div>
       </div>
       <div class="col-md-9 righty-siding">
@@ -58,11 +58,6 @@
           <div class="carousel-inner">
             <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
               <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')'}"> </div>
-              <div class="container">
-                <div class="carousel-caption">
-                  <h1>{{image.name}}</h1>
-                </div>
-              </div>
             </div>
           </div>
           <ol class="carousel-indicators">
@@ -73,6 +68,35 @@
             </li>
             <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
           </ol>
+        </div>
+      </div>
+      <div class="col-md-3 lefty-siding righty-side">
+        <div class="row-fluid">
+          <h5 class="title-inner">
+            CONTACTO
+          </h5>
+          <hr class="hr-inner">
+        </div>
+        <div class="row-fluid">
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>{{hotel.commercialAddress}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-earphone"></i>
+            <span>{{hotel.phone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-phone"></i>
+            <span>{{hotel.cellPhone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicons glyphicon-envelope"></i>
+            <span>{{hotel.emailAddress}}</span>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <a href="{{hotel.webReservation}}" class="btn btn-primary center-block">RESERVAR</a>
         </div>
       </div>
     </div>
@@ -88,7 +112,7 @@
         </agm-map>
       </div>
       <div class="col-md-8">
-        <p>{{htmlToPlaintext(hotel.description)}}</p>
+        <p [innerHTML]="hotel.description"></p>
       </div>
     </div>
   </div>

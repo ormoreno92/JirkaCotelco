@@ -4,7 +4,7 @@
     width: 8pc;
     background: rgba(24, 74, 145, 0.6);
     height: 7pc;
-    top: 22.5%;
+    top: 17%;
 }
 
 .hotel-stars {
@@ -115,6 +115,10 @@
 #thumbnail-preview-indicators .slides,
 #thumbnail-preview-indicators .slides .slide-n {
     height: 20pc;
+}
+
+#thumbnail-preview-indicators .slides {
+    background-color: #305C9C;
 }
 
 #thumbnail-preview-indicators .carousel-inner .item .carousel-caption {
@@ -229,7 +233,7 @@
 }
 
 .gray-row {
-    height: 2.5pc;
+    min-height: 2.5pc;
     background: #E5E4E5;
 }
 
@@ -272,4 +276,19 @@ agm-map {
     width: 100%;
     max-width: 5pc;
     margin-top: -1pc;
+}
+
+@media (max-width: 992px) {
+    .hotel-info-upper {
+        position: relative;
+        right: 0;
+        width: 8pc;
+        top: 0;
+        display: block;
+        margin: 0 auto;
+        margin-top: 5pc;
+    }
+    .carousel-control {
+        width: 15pc;
+    }
 }

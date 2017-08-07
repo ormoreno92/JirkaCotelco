@@ -15,7 +15,7 @@
     <div class="col-md-12">
       <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
         <div class="carousel-inner">
-          <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">            
+          <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a href="{{image.link}}" target="_blank">
                 <img src="{{image.url}}" class="img-responsive" alt="{{image.title}}">
@@ -33,4 +33,49 @@
   </h3>
   <hr class="hr-home">
   <br />
+  <div class="col-md-12 library-st">
+    <div class="row-fluid yellow-container">
+      <div class="col-md-12 col-sm-10 col-xs-12">
+        <div class="row-fluid">
+          <form #values="ngForm">
+            <div class="col-md-12">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="dpt" ngModel>
+                <option value="" disabled>Categoría</option>                
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="ct" ngModel>
+                <option value="" disabled>Subcategoría</option>                
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="ct" ngModel>
+                <option value="" disabled>Tema</option>                
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                    ngModel />
+                  <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid inner-library-results">
+      <div class="alert alert-warning">
+        <strong>Atención!</strong> No hay resultados para la búsqueda realizada.
+      </div>
+    </div>
+  </div>
 </div>
