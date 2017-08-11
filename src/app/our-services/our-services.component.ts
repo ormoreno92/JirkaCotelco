@@ -1,3 +1,4 @@
+import { DataServiceService } from '../data-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./our-services.component.less']
 })
 export class OurServicesComponent implements OnInit {
-
-  constructor() { }
+  consultancies;
+  constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.dataService.getCotelcoServices()
+      .subscribe(dataH => this.consultancies = dataH, error => console.log(error));
   }
 
 }

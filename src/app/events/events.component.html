@@ -8,7 +8,9 @@
     <div class="row-fluid">
         <div class="container" class="inner-event-conti">
             <div class="col-md-2 righty-side">
-                <div class="row" [innerHTML]="menu">
+                <div class="row">
+                    <ul class="nav nav-pills nav-stacked righty-menu" [innerHTML]="menu">
+                    </ul>
                 </div>
             </div>
             <div class="col-md-10">
@@ -18,7 +20,9 @@
                 </div>
             </div>
             <div class="col-md-2 lefty-side">
-                <div class="row" [innerHTML]="menu">
+                <div class="row">
+                    <ul class="nav nav-pills nav-stacked lefty-menu" [innerHTML]="menu">
+                    </ul>
                 </div>
             </div>
         </div>

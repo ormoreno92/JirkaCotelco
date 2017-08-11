@@ -1,0 +1,107 @@
+<div class="row header-inner-sections affiliate-img">
+  <div class="title-inner-section">
+    <span>CONTÁCTENOS</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container">
+  <h3 class="title-home">
+    NUEVO MENSAJE
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="panel panel-default">
+    <div class="panel-heading">Formulario de Contacto</div>
+    <div class="panel-body">
+      <form class="affiliate-form">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <h4 class="full-title">
+                Sugerencia
+              </h4>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="subject" class="label-form">Asunto<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="subject" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sbct" class="label-form">Tipo<span class="mandatory">(*)</span></label>
+                  <select id="sbct" class="label-form" required>
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option *ngFor="let type of types; let i=index" value="{{type.id}}">{{type.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="msg" class="label-form">Mensaje<span class="mandatory">(*)</span></label>
+                  <textarea placeholder="Ingrese su mensaje" required id="msg"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h4 class="full-title">
+                Datos de contacto
+              </h4>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="uname" class="label-form">Nombres<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="uname">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lastnames" class="label-form">Apellidos<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="lastnames">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="label-form">Correo<span class="mandatory">(*)</span></label>
+                  <input type="mail" class="form-control" id="email" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cellphone" class="label-form">Celular<span class="mandatory">(*)</span></label>
+                  <input type="tel" class="form-control" id="cellphone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone" class="label-form">Teléfono<span class="mandatory">(*)</span></label>
+                  <input type="tel" class="form-control" id="phone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="charge" class="label-form">Cargo<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="charge">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="company" class="label-form">Empresa<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="company">
+                </div>
+              </div>
+              <div class="row footer-form-afilliate">
+                <div class="col-md-12">
+                  <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf"
+                      target="_blank">Política de Tratamiento de Datos</a>:</p>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="">Acepto</label>
+                  </div>
+                  <input type="submit" class="btn btn-alert" value="Registrar">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

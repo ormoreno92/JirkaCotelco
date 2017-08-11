@@ -28,6 +28,7 @@ import { AffiliatesModComponent } from './affiliates-mod/affiliates-mod.componen
 import { AffiliateResultComponent } from './affiliates-mod/affiliate-result/affiliate-result.component';
 import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
 import { EventsResultComponent } from './events/events-result/events-result.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { EventsResultComponent } from './events/events-result/events-result.comp
     AffiliatesModComponent,
     AffiliateResultComponent,
     CustomAppPipesPipe,
-    EventsResultComponent
+    EventsResultComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -118,6 +120,10 @@ import { EventsResultComponent } from './events/events-result/events-result.comp
       {
         path: '\BusquedaAfiliados',
         component: AffiliateResultComponent
+      },
+      {
+        path: '\Contactenos',
+        component: ContactComponent
       }
     ]),
     AlertModule.forRoot(),

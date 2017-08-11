@@ -25,9 +25,7 @@ export class EventsComponent implements OnInit {
   private drawEvent(dataH) {
     this.event = dataH;
     const j = this.event;
-    console.log(j);
-    let menu = `<ul class="nav nav-pills nav-stacked lefty-menu">
-                <li class="active">
+    let menu = `<li class="active">
                   <a data-toggle="pill" href="#sec1">Inicio</a>
                 </li>`;
     let body = `<div id="sec1" class="tab-pane active inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
@@ -38,7 +36,7 @@ export class EventsComponent implements OnInit {
       menu += `<li>
                 <a data-toggle="pill" href="#sec2">Introducción</a>
               </li>`;
-      body += `<div id="sec2" class="tab-pane active inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+      body += `<div id="sec2" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
                   <img src="` + j.introductionFile + `"
                   style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
                 </div>`;
@@ -47,7 +45,7 @@ export class EventsComponent implements OnInit {
       menu += `<li>
                 <a data-toggle="pill" href="#sec3">Horarios</a>
               </li>`;
-      body += `<div id="sec3" class="tab-pane active inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+      body += `<div id="sec3" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
                   <img src="` + j.scheduleFile + `"
                   style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
                 </div>`;
@@ -56,34 +54,60 @@ export class EventsComponent implements OnInit {
       menu += `<li>
                 <a data-toggle="pill" href="#sec4">Conferencistas</a>
               </li>`;
-      body += `<div id="sec4" class="tab-pane active inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+      body += `<div id="sec4" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
                   <img src="` + j.speakersFile + `"
                   style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
                 </div>`;
     }
-
-    /*if (!this.isNullOrEmpty(j.programFile)) {
-      $('.bodyEvent').append('<img src="' + j.programFile + '" class="img-hundred" />');
+    if (!this.isNullOrEmpty(j.programFile)) {
+      menu += `<li>
+                <a data-toggle="pill" href="#sec5">Programa</a>
+              </li>`;
+      body += `<div id="sec5" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+                  <img src="` + j.programFile + `"
+                  style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
+                </div>`;
     }
 
     if (!this.isNullOrEmpty(j.inversionFile)) {
-      $('.bodyEvent').append('<img src="' + j.inversionFile + '" class="img-hundred" />');
+      menu += `<li>
+                <a data-toggle="pill" href="#sec6">Inversión</a>
+              </li>`;
+      body += `<div id="sec6" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+                  <img src="` + j.inversionFile + `"
+                  style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
+                </div>`;
     }
 
     if (!this.isNullOrEmpty(j.hotelRatesFile)) {
-      $('.bodyEvent').append('<img src="' + j.hotelRatesFile + '" class="img-hundred" />');
+      menu += `<li>
+                <a data-toggle="pill" href="#sec7">Tarifas Hoteleras</a>
+              </li>`;
+      body += `<div id="sec7" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+                  <img src="` + j.hotelRatesFile + `"
+                  style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
+                </div>`;
     }
 
     if (!this.isNullOrEmpty(j.reportsFile)) {
-      $('.bodyEvent').append('<img src="' + j.reportsFile + '" class="img-hundred" />');
-    }*/
-    menu += `</ul>`;
+      menu += `<li>
+                <a data-toggle="pill" href="#sec8">Informe</a>
+              </li>`;
+      body += `<div id="sec8" class="tab-pane inner-pane-props" style="background: white;" (click)="goToExternal(` + j.url + `)">
+                  <img src="` + j.reportsFile + `"
+                  style="background: white;height:auto;width:100%;display:block;margin:0 auto;"/>
+                </div>`;
+    }
     this.menu = menu;
     $('#bodyCont').html(body);
+    /*$('.nav-pills').tab();
+    $.each($('.nav-pills'), function () {
+      $(this).tab();
+    });*/
   }
 
   private isNullOrEmpty(data: any): boolean {
-    if (data === null || data === '') { return true };
+    if (data === null || data === '' || data === 'null') { return true };
     return false;
   }
 

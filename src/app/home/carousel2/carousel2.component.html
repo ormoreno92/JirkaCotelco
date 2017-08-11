@@ -26,7 +26,7 @@
               <input type="text" class="form-control" id="search" placeholder="Buscar" />
             </div>
           </div>
-          <input type="submit" class="btn btn-primary center-block" value="RESERVAR" />
+          <input type="submit" class="btn btn-primary center-block btn-80 bolder-btn" value="RESERVAR" />
         </form>
       </div>
     </div>
@@ -34,22 +34,14 @@
       <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+            <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.photo+ ')'}"> </div>
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>{{image.tradename}}</h1>
-              </div>
+            <div class="carousel-caption">
+              <h1>{{image.tradename}} - {{image.city}}</h1>
             </div>
+            <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
           </div>
         </div>
-        <ol class="carousel-indicators">
-          <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-          <li *ngFor="let img of images; let i=index" data-target="#thumbnail-preview-indicators" attr.data-slide-to="{{i}}" class=""
-            [ngClass]="{active:i==0}">
-            <img class="img-responsive" src="{{img.photo}}">
-          </li>
-          <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </ol>
       </div>
     </div>
     <div class="col-md-2 form-allies">
@@ -78,7 +70,7 @@
               <input type="text" class="form-control" id="search" placeholder="Palabra Clave" name="kw" ngModel />
             </div>
           </div>
-          <button type="submit" class="btn btn-primary center-block">BUSCAR</button>
+          <button type="submit" class="btn btn-primary center-block btn-80 bolder-btn">BUSCAR</button>
         </form>
       </div>
     </div>

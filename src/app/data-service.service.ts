@@ -30,7 +30,13 @@ export class DataServiceService {
     getFuncs: 'http://apps.jirka.co/JSih/webresources/UserREST/getFunctionariesCotelco',
     getAlliesImages: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getCommercialAllie',
     getConsultancies: 'http://apps.jirka.co/JSih/webresources/ConsultancyREST/getConsultancies',
-    getEventDetails: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvent/'
+    getEventDetails: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvent/',
+    getEventSearch: 'http://apps.jirka.co/JSih/webresources/EventsREST/searchEvents/',
+    getContactTypes: 'http://apps.jirka.co/JSih/webresources/SuggestionREST/getSuggestionsTypes',
+    getCotelcoServices: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getServicesCotelco',
+    getPressAllies: 'http://apps.jirka.co/JSih/webresources/NewsREST/getAlliesNews',
+    getLastNew: 'http://apps.jirka.co/JSih/webresources/NewsREST/getLastNewsByType/PRESIDENCY',
+    getLastNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNewsHistory'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -83,7 +89,7 @@ export class DataServiceService {
   }
 
   public getEventResult(dep: any, cit: any, key: any): Observable<any[]> {
-    return this.http.get(this.services.ListaEventos + dep + '/' + cit + '/' + key, this.options)
+    return this.http.get(this.services.getEventSearch + dep + '/' + cit + '/' + key, this.options)
       .map(res => res.json());
   }
 
@@ -99,6 +105,11 @@ export class DataServiceService {
 
   public getSubcategories(): Observable<any> {
     return this.http.get(this.services.ObtenerSubCategorias, this.options)
+      .map(res => res.json());
+  }
+
+  public getContactTypes(): Observable<any> {
+    return this.http.get(this.services.getContactTypes, this.options)
       .map(res => res.json());
   }
 
@@ -134,6 +145,26 @@ export class DataServiceService {
 
   public getConsultancies(): Observable<any> {
     return this.http.get(this.services.getConsultancies, this.options)
+      .map(res => res.json());
+  }
+
+  public getCotelcoServices(): Observable<any> {
+    return this.http.get(this.services.getCotelcoServices, this.options)
+      .map(res => res.json());
+  }
+
+  public getPressAllies(): Observable<any> {
+    return this.http.get(this.services.getPressAllies, this.options)
+      .map(res => res.json());
+  }
+
+  public getLastNew(): Observable<any> {
+    return this.http.get(this.services.getLastNew, this.options)
+      .map(res => res.json());
+  }
+
+  public getlastNews(): Observable<any> {
+    return this.http.get(this.services.getLastNews, this.options)
       .map(res => res.json());
   }
 }

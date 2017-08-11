@@ -1,7 +1,7 @@
 <div class="home-principal-banner">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">
+            <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0,pirineoLink:image.link!=null}" (click)="RedirectToExternal(image.link)">
                 <img src="{{image.url}}" alt="{{image.title}}">
             </div>
         </div>

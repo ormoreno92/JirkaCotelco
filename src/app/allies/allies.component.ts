@@ -18,7 +18,7 @@ export class AlliesComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getAlliesImages()
-      .subscribe(dataH => console.log(dataH), error => console.log(error));
+      .subscribe(dataH => this.images = dataH, error => console.log(error));
     this.dataService.getAlliesCats()
       .subscribe(dataH => this.drawAllies(dataH), error => console.log(error));
   }
