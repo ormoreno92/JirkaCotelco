@@ -117,7 +117,6 @@
     </div>
   </div>
   <div class="row gray-row gray-row2 services-list-hotel">
-    <img class="serviceImage2" src="./assets/img/green-globe.png" alt="">
-    <img class="serviceImage2" src="./assets/img/iso.png" alt="">
+    <img *ngFor="let brand of brandings; let i=index" class="serviceImage2" src="{{brand.image}}" alt="">
   </div>
 </div>

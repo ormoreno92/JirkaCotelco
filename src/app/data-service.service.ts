@@ -167,6 +167,11 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
+  public getSpecificNew(url: string): Observable<any> {
+    return this.http.get(this.services.ListaNoticias + '/' + url, this.options)
+      .map(res => res.json());
+  }
+
   public getlastNews(): Observable<any> {
     return this.http.get(this.services.getLastNews, this.options)
       .map(res => res.json());

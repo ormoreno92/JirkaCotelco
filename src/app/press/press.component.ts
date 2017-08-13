@@ -61,8 +61,18 @@ export class PressComponent implements OnInit {
       .subscribe(dataH => this.saveAndRedirect(dataH), error => console.log(error));
   }
 
+  public redirectToSpecific(newId: string): void {
+    this.dataService.getSpecificNew(newId)
+      .subscribe(dataH => this.saveAndRedirect(dataH), error => console.log(error));
+  }
+
   private saveAndRedirect(dataH: any) {
+    localStorage.removeItem('CurrentPress');
     localStorage.setItem('CurrentPress', JSON.stringify(dataH));
-    this.router.navigate(['./Noticia']);
+    window.open('/Noticia', '_blank');
+  }
+
+  public redirectToHistory(): void {
+    this.router.navigate(['./Historial']);
   }
 }

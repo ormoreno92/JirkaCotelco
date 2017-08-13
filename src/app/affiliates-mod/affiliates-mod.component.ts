@@ -12,6 +12,7 @@ export class AffiliatesModComponent implements OnInit {
   services;
   lat;
   lng;
+  brandings;
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class AffiliatesModComponent implements OnInit {
     this.hotel = dataH;
     this.images = this.hotel.photoList;
     this.services = this.hotel.servicesList;
+    this.brandings = this.hotel.certificationsList;
     this.lat = this.hotel.latitude;
     this.lng = this.hotel.longitude;
     this.hotel.webReservation = '';

@@ -14,6 +14,9 @@ export class PressViewComponent implements OnInit {
 
   ngOnInit() {
     this.hg = $(window).height();
+    $('body').css('padding-top', '0');
+    $('app-header').hide();
+    $('app-footer').hide();
     const jsonData = JSON.parse(localStorage.getItem('CurrentPress'));
     console.log(jsonData);
     this.drawNew(jsonData);
