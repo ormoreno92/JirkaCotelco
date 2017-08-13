@@ -100,10 +100,8 @@ export class EventsComponent implements OnInit {
     }
     this.menu = menu;
     $('#bodyCont').html(body);
-    /*$('.nav-pills').tab();
-    $.each($('.nav-pills'), function () {
-      $(this).tab();
-    });*/
+    $('.menusitoMen').html(menu);
+    $('.nav-pills').tab();
   }
 
   private isNullOrEmpty(data: any): boolean {

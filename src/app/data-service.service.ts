@@ -35,8 +35,12 @@ export class DataServiceService {
     getContactTypes: 'http://apps.jirka.co/JSih/webresources/SuggestionREST/getSuggestionsTypes',
     getCotelcoServices: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getServicesCotelco',
     getPressAllies: 'http://apps.jirka.co/JSih/webresources/NewsREST/getAlliesNews',
-    getLastNew: 'http://apps.jirka.co/JSih/webresources/NewsREST/getLastNewsByType/PRESIDENCY',
-    getLastNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNewsHistory'
+    getLastNew: 'http://apps.jirka.co/JSih/webresources/NewsREST/getLastNewsByType/',
+    getLastNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNewsHistory',
+    getCategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getCategoriesDocs',
+    getSubcategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getSubcategoriesDocs',
+    getTopicsDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getTopicsDocs',
+    searchDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/searchDocs/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -158,13 +162,33 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
-  public getLastNew(): Observable<any> {
-    return this.http.get(this.services.getLastNew, this.options)
+  public getLastNew(url: string): Observable<any> {
+    return this.http.get(this.services.getLastNew + url, this.options)
       .map(res => res.json());
   }
 
   public getlastNews(): Observable<any> {
     return this.http.get(this.services.getLastNews, this.options)
+      .map(res => res.json());
+  }
+
+  public getCategoriesDocs(): Observable<any> {
+    return this.http.get(this.services.getCategoriesDocs, this.options)
+      .map(res => res.json());
+  }
+
+  public getSubcategoriesDocs(): Observable<any> {
+    return this.http.get(this.services.getSubcategoriesDocs, this.options)
+      .map(res => res.json());
+  }
+
+  public getTopicsDocs(): Observable<any> {
+    return this.http.get(this.services.getTopicsDocs, this.options)
+      .map(res => res.json());
+  }
+
+  public getlibraryResult(cat: any, scat: any, theme: any, keyword: any): Observable<any[]> {
+    return this.http.get(this.services.searchDocs + cat + '/' + scat + '/' + theme + '/' + keyword, this.options)
       .map(res => res.json());
   }
 }

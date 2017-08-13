@@ -16,8 +16,7 @@
           <div class="row-fluid">
             <div class="col-md-12">
               <div class="row-inner-press" *ngFor="let new of lastNews">
-                <h4 class="mini-press-title">{{new.title | customAppPipes:25}}</h4>
-                <p>{{new.summary | customAppPipes:50}}</p>
+                <h4 class="mini-press-title">{{new.title}}</h4>                
               </div>
             </div>
             <div class="col-md-12">
@@ -45,17 +44,17 @@
             </div>
             <div class="col-md-4 funny-btns">
               <ul class="nav nav-pills nav-stacked lefty-menu">
-                <li class="active">
-                  <a data-toggle="pill" href="#">CARTA DE PRESIDENTE</a>
+                <li class="">
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('PRESIDENCY')">CARTA DE PRESIDENTE</a>
                 </li>
                 <li>
-                  <a data-toggle="pill" href="#">BOLETINES</a>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('PRESIDENCY')">BOLETINES</a>
                 </li>
                 <li>
-                  <a data-toggle="pill" href="#">CIRCULARES</a>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('PRESIDENCY')">CIRCULARES</a>
                 </li>
                 <li>
-                  <a data-toggle="pill" href="#">INDICADORES HOTELEROS</a>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('PRESIDENCY')">INDICADORES HOTELEROS</a>
                 </li>
               </ul>
             </div>

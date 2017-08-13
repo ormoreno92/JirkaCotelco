@@ -11,11 +11,21 @@ declare var $: any;
 })
 export class PublishingsComponent implements OnInit {
   images;
+  categories;
+  sCategories;
+  themes;
+  library = [];
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
     this.dataService.getPublicaciones()
       .subscribe(dataH => this.DrawPublications(dataH), error => console.log(error));
+    this.dataService.getCategoriesDocs()
+      .subscribe(dataH => this.categories = dataH, error => console.log(error));
+    this.dataService.getSubcategoriesDocs()
+      .subscribe(dataH => this.sCategories = dataH, error => console.log(error));
+    this.dataService.getTopicsDocs()
+      .subscribe(dataH => this.themes = dataH, error => console.log(error));
   }
 
   private DrawPublications(dataH: any): void {
@@ -36,5 +46,36 @@ export class PublishingsComponent implements OnInit {
         }
       });
     }, 1000);
+  }
+
+  public searchLibrary(data): void {
+    let cat = null;
+    let scat = null;
+    let theme = null;
+    let keyword = null;
+    let valid = false;
+    if (!this.isNullOrEmpty(data.value.cat)) { cat = data.value.cat; valid = true };
+    if (!this.isNullOrEmpty(data.value.scat)) { scat = data.value.scat; valid = true };
+    if (!this.isNullOrEmpty(data.value.theme)) { theme = data.value.theme; valid = true };
+    if (!this.isNullOrEmpty(data.value.kw)) { keyword = data.value.kw; valid = true };
+    if (!valid) {
+      alert('Seleccione alguna opción o agregue si desea una palabra clave.');
+      return;
+    }
+    this.dataService.getlibraryResult(cat, scat, theme, keyword)
+      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
+  }
+
+  public isNullOrEmpty(data: any): boolean {
+    if (data === null || data === '') { return true };
+    return false;
+  }
+  private SetContent(dataH: any): void {
+    console.log(dataH);
+    this.library = dataH;
+  }
+
+  public DownloadDocument(url: any): void {
+    window.open(url, '_blank');
   }
 }

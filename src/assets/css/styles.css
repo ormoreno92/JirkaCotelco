@@ -7239,7 +7239,9 @@ select[class^="label-form"] {
   line-height: 1pc;
 }
 .inner-menu-bar:nth-child(6) img {
-  height: 2.5pc;
+  height: 2pc;
+  width: 2pc;
+  margin-top: 9%;
 }
 .bolder-btn {
   font-weight: bolder;

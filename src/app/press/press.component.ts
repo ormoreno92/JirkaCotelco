@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CustomAppPipesPipe } from '../custom-app-pipes.pipe';
 import { DataServiceService } from '../data-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,12 +13,12 @@ export class PressComponent implements OnInit {
   alliesI;
   lastNew;
   lastNews;
-  constructor(private dataService: DataServiceService) { }
+  constructor(private dataService: DataServiceService, private router: Router) { }
 
   ngOnInit() {
     this.dataService.getPressAllies()
       .subscribe(dataH => this.drawAllies(dataH), error => console.log(error));
-    this.dataService.getLastNew()
+    this.dataService.getLastNew('PRESIDENCY')
       .subscribe(dataH => this.lastNew = dataH, error => console.log(error));
     this.dataService.getlastNews()
       .subscribe(dataH => this.drawNews(dataH), error => console.log(error));
@@ -53,5 +54,15 @@ export class PressComponent implements OnInit {
       news.push(dataH[i]);
     }
     this.lastNews = news;
+  }
+
+  public redirectToLast(url: string): void {
+    this.dataService.getLastNew(url)
+      .subscribe(dataH => this.saveAndRedirect(dataH), error => console.log(error));
+  }
+
+  private saveAndRedirect(dataH: any) {
+    localStorage.setItem('CurrentPress', JSON.stringify(dataH));
+    this.router.navigate(['./Noticia']);
   }
 }

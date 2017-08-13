@@ -29,6 +29,8 @@ import { AffiliateResultComponent } from './affiliates-mod/affiliate-result/affi
 import { CustomAppPipesPipe } from './custom-app-pipes.pipe';
 import { EventsResultComponent } from './events/events-result/events-result.component';
 import { ContactComponent } from './contact/contact.component';
+import { PressViewComponent } from './press/press-view/press-view.component';
+import { PressHistoryComponent } from './press/press-history/press-history.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ContactComponent } from './contact/contact.component';
     AffiliateResultComponent,
     CustomAppPipesPipe,
     EventsResultComponent,
-    ContactComponent
+    ContactComponent,
+    PressViewComponent,
+    PressHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +128,14 @@ import { ContactComponent } from './contact/contact.component';
       {
         path: '\Contactenos',
         component: ContactComponent
+      },
+      {
+        path: '\Noticia',
+        component: PressViewComponent
+      },
+      {
+        path: '\Historial',
+        component: PressHistoryComponent
       }
     ]),
     AlertModule.forRoot(),
