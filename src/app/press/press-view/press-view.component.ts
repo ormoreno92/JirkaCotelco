@@ -53,14 +53,15 @@ export class PressViewComponent implements OnInit {
     if (!this.StringIsNullOrEmpty(data.description)) {
       $('.newBody').append('<label class="prever">' + data.summary + '<label>');
       if (!this.StringIsNullOrEmpty(data.image)) {
-        $('.newBody').append('<img src="' + data.image + '" alt="" />');
+        $('.newBody').append('<img src="' + data.image + '" alt="" style="display: block;margin: 0 auto;width: 100%;height: auto;" />');
       }
       $('.newBody').append('<p name="campo3" readonly="readonly" class="textotabla"' +
         'type="textarea" cols="10" rows="2" id="nombre3">' + data.description + '</p>');
     } else {
       $('.newBody').append('<label class="prever">' + data.summary + '<label>');
       $('.newBody').append('<a href="' + data.hyperlink + '" target="_blank">' +
-        '<img src=' + data.image + ' alt="" class="imgCenteredNews" /> </a>');
+        // tslint:disable-next-line:max-line-length
+        '<img src=' + data.image + ' alt="" class="imgCenteredNews" style="display: block;margin: 0 auto;width: 100%;height: auto;" /> </a>');
     }
   }
 

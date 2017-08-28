@@ -33,7 +33,7 @@
     <div class="col-md-7 home-hotels-banne">
       <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+          <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}" (click)="goToHotel(image.id)">
             <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.photo+ ')'}"> </div>
             <div class="carousel-caption">

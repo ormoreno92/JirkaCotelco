@@ -15,6 +15,7 @@ export class PublishingsComponent implements OnInit {
   sCategories;
   themes;
   library = [];
+  innerMessage = 'Realice una búsqueda.';
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -73,6 +74,13 @@ export class PublishingsComponent implements OnInit {
   private SetContent(dataH: any): void {
     console.log(dataH);
     this.library = dataH;
+    if (this.library != null) {
+      if (this.library.length < 1) {
+        this.innerMessage = 'No se encontraron resultados para su búsqueda.';
+      }
+    } else {
+      this.innerMessage = 'No se encontraron resultados para su búsqueda.';
+    }
   }
 
   public DownloadDocument(url: any): void {

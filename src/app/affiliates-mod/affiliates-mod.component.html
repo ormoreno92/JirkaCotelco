@@ -46,28 +46,25 @@
           </div>
           <div class="row contact-hotel">
             <i class="glyphicons glyphicon-envelope"></i>
-            <span>{{hotel.emailAddress}}</span>
+            <span>{{hotel.emailReservation}}</span>
           </div>
         </div>
         <div class="row-fluid">
-          <a href="{{hotel.webReservation}}" class="btn btn-primary center-block btn-80 bolder-btn" ng-hide="!hotel.webReservation">RESERVAR</a>
+          <a *ngIf="hotel?.webSite" href="{{hotel.webSite}}" target="_blank" class="btn btn-primary center-block btn-80 bolder-btn" ng-hide="!hotel.webSite">RESERVAR</a>
         </div>
       </div>
       <div class="col-md-9 righty-siding">
         <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+            <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}" (click)="goToHotel(image.id)">
+              <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
               <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')'}"> </div>
+              <div class="carousel-caption">
+                <h1>image.name</h1>
+              </div>
+              <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
           </div>
-          <ol class="carousel-indicators">
-            <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <li *ngFor="let img of images; let i=index" data-target="#thumbnail-preview-indicators" attr.data-slide-to="{{i}}" class=""
-              [ngClass]="{active:i==0}">
-              <img class="img-responsive" src="{{img.image}}">
-            </li>
-            <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-          </ol>
         </div>
       </div>
       <div class="col-md-3 lefty-siding righty-side">
@@ -96,7 +93,7 @@
           </div>
         </div>
         <div class="row-fluid">
-          <a href="{{hotel.webReservation}}" class="btn btn-primary center-block btn-80 bolder-btn">RESERVAR</a>
+          <a *ngIf="hotel?.webReservation" href="{{hotel.webReservation}}" class="btn btn-primary center-block btn-80 bolder-btn">RESERVAR</a>
         </div>
       </div>
     </div>

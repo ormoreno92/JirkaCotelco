@@ -1,7 +1,7 @@
 <div class="row header-inner-sections about-img">
   <div class="title-inner-section">
     <img src="./assets/img/sources.png" alt="Quienes Somos">
-    <span>QUIENES SOMOS</span>
+    <span>QUIÉNES SOMOS</span>
   </div>
 </div>
 <div class="row yellow-bar"></div>
@@ -94,7 +94,21 @@
           </div>
           <div id="sec6" class="tab-pane inner-pane-props">
             <h2>DOCUMENTOS INSTITUCIONALES</h2>
-            <img src="./assets/img/vision.png">
+            <div class="col-md-12 hotel-block" *ngFor="let doc of docs | paginate: { itemsPerPage: 5, currentPage: p }" style="cursor:pointer;" (click)="downloadDocument(doc.url)">
+              <div class="row-fluid inner-h-p">
+                <div class="col-md-12">
+                  <h3 class="inner-results-hotel-name">{{doc.name}}</h3>
+                  <span class="charge-func">{{doc.publicationDate}}</span>
+                  <p class="inner-results-hotel-desc">
+                    {{htmlToPlaintext(doc.summary,3000)}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="has-text-centered col-md-12">
+              <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+                screenReaderCurrentLabel=" "></pagination-controls>
+            </div>
           </div>
         </div>
       </div>

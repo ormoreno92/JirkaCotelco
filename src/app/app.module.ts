@@ -31,6 +31,7 @@ import { EventsResultComponent } from './events/events-result/events-result.comp
 import { ContactComponent } from './contact/contact.component';
 import { PressViewComponent } from './press/press-view/press-view.component';
 import { PressHistoryComponent } from './press/press-history/press-history.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PressHistoryComponent } from './press/press-history/press-history.compo
     EventsResultComponent,
     ContactComponent,
     PressViewComponent,
-    PressHistoryComponent
+    PressHistoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

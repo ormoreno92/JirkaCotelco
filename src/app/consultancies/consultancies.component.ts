@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ConsultanciesComponent implements OnInit {
   consultancies;
   current;
+  current_title = 'PROYECTOS HOTELEROS';
+  current_color = '#F9B42B';
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -21,12 +23,29 @@ export class ConsultanciesComponent implements OnInit {
     return false;
   }
 
-  public changeSelector(val: any): void {
+  public changeSelector(val: any, type: number): void {
     this.current = this.getCurrentAllie(val).linesList;
+    switch (type) {
+      case 0:
+        this.current_color = '#F9B42B';
+        break;
+      case 1:
+        this.current_color = '#184A91';
+        break;
+      case 2:
+        this.current_color = '#E02727';
+        break;
+      default:
+        this.current_color = '#F9B42B';
+        break;
+    }
+    console.log(this.current_color);
   }
 
   private drawConsultors(dataH: any): void {
     this.consultancies = dataH
+    console.log(dataH);
+    this.current_title = this.consultancies[0].name;
     this.current = this.getCurrentAllie(this.consultancies[0].id).linesList;
   }
 

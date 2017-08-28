@@ -37,44 +37,44 @@
             posibilidad de descargar el documento para que lo diligencien.</li>
         </ol>
       </div>
-      <form class="affiliate-form">
+      <form class="affiliate-form" #values="ngForm" (ngSubmit)="SendContact(values)" id="frmSbt">
         <div class="row">
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="rz" class="label-form">Razón social<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rz" required>
+                  <input type="text" class="form-control" id="rz" name="rz" required ngModel>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="nc" class="label-form">Nombre Comercial<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="nc" required>
+                  <input type="text" class="form-control" id="nc" name="nc" required ngModel>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="rnt" class="label-form">RNT<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rnt" (focusout)="validateRnt($event)" required>
+                  <input type="text" class="form-control" id="rnt" name="rnt" (focusout)="validateRnt($event)" required ngModel>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="rut" class="label-form">RUT<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rut" required>
+                  <input type="text" class="form-control" id="rut" name="rut" required ngModel>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="rl" class="label-form">Representante Legal<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="rl" required>
+                  <input type="text" class="form-control" id="rl" name="rl" required ngModel>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="sbct" class="label-form">Subcategoría<span class="mandatory">(*)</span></label>
-                  <select id="sbct" class="label-form" required>
+                  <select id="sbct" class="form-control" name="sbct" required ngModel>
                     <option value="" disabled>Seleccione una opción</option>
                     <option *ngFor="let subCategorie of subCategories; let i=index" value="{{subCategorie.id}}">{{subCategorie.name}}</option>
                   </select>
@@ -83,7 +83,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="capi" class="label-form">Capítulo<span class="mandatory">(*)</span></label>
-                  <select id="capi" class="label-form" required>
+                  <select id="capi" class="form-control" name="capi" required ngModel>
                     <option value="" disabled>Seleccione una opción</option>
                     <option *ngFor="let chapter of chapters; let i=index" value="{{chapter.id}}">{{chapter.name}}</option>
                   </select>
@@ -92,7 +92,7 @@
               <div class="col-md-5">
                 <div class="form-group">
                   <label for="address" class="label-form">Dirección<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="address" required>
+                  <input type="text" class="form-control" id="address" name="address" required ngModel>
                 </div>
               </div>
             </div>
@@ -103,31 +103,31 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="uname" class="label-form">Nombres</label>
-                  <input type="text" class="form-control" id="uname">
+                  <input type="text" class="form-control" id="uname" name="uname" ngModel>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="lastnames" class="label-form">Apellidos</label>
-                  <input type="text" class="form-control" id="lastnames">
+                  <input type="text" class="form-control" id="lastnames" name="lastnames" ngModel>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="email" class="label-form">Correo<span class="mandatory">(*)</span></label>
-                  <input type="mail" class="form-control" id="email" (focusout)="validateEmail($event)" required>
+                  <input type="mail" class="form-control" id="email" (focusout)="validateEmail($event)" name="email" required ngModel>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="password" class="label-form">Contraseña<span class="mandatory">(*)</span></label>
-                  <input type="password" class="form-control" id="password" required>
+                  <input type="password" class="form-control" id="password" name="password" required ngModel>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="confirm" class="label-form">Confirmar<span class="mandatory">(*)</span></label>
-                  <input type="password" class="form-control" id="confirm" required>
+                  <input type="password" class="form-control" id="confirm" name="confirm" required ngModel>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@
               <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf"
                   target="_blank">Política de Tratamiento de Datos</a>:</p>
               <div class="checkbox">
-                <label><input type="checkbox" value="">Acepto</label>
+                <label><input type="checkbox" value="" id="chkAccept">Acepto</label>
               </div>
               <input type="submit" class="btn btn-alert" value="Registrar">
             </div>

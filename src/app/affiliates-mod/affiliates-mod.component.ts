@@ -28,7 +28,6 @@ export class AffiliatesModComponent implements OnInit {
     this.brandings = this.hotel.certificationsList;
     this.lat = this.hotel.latitude;
     this.lng = this.hotel.longitude;
-    this.hotel.webReservation = '';
   }
   public htmlToPlaintext(text) {
     const nText = text ? String(text).replace(/<[^>]+>/gm, '') : '';

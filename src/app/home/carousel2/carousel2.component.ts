@@ -51,5 +51,11 @@ export class Carousel2Component implements OnInit {
     if (data === null || data === '') { return true };
     return false;
   }
+
+  public goToHotel(id: any): void {
+    localStorage.removeItem('currentHotel');
+    localStorage.setItem('currentHotel', id);
+    this.router.navigate(['./Afiliados']);
+  }
 }
 

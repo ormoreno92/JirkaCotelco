@@ -3,6 +3,9 @@ import { CustomAppPipesPipe } from '../custom-app-pipes.pipe';
 import { DataServiceService } from '../data-service.service';
 import { Component, OnInit } from '@angular/core';
 
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-press',
   templateUrl: './press.component.html',
@@ -26,7 +29,21 @@ export class PressComponent implements OnInit {
 
   public htmlToPlaintext(text, limit) {
     if (text != null && text !== '') {
-      const nText = text ? String(text).replace(/<[^>]+>/gm, '') : '';
+      let nText = text ? String(text).replace(/<[^>]+>/gm, '') : '';
+      nText = nText.replace(/&aacute;/g, 'á');
+      nText = nText.replace(/&eacute;/g, 'é');
+      nText = nText.replace(/&iacute;/g, 'í');
+      nText = nText.replace(/&oacute;/g, 'ó');
+      nText = nText.replace(/&uacute;/g, 'ú');
+      nText = nText.replace(/&ntilde;/g, 'ñ');
+      nText = nText.replace(/&uuml;/g, 'ü');
+      nText = nText.replace(/&Aacute;/g, 'Á');
+      nText = nText.replace(/&Eacute;/g, 'É');
+      nText = nText.replace(/&Iacute;/g, 'Í');
+      nText = nText.replace(/&Oacute;/g, 'Ó');
+      nText = nText.replace(/&Uacute;/g, 'Ú');
+      nText = nText.replace(/&Ñtilde;/g, 'Ñ');
+      nText = nText.replace(/&Üuml;/g, 'Ü');
       const trail = '...';
       return nText.length > limit ? nText.substring(0, limit) + trail : nText;
     }
@@ -66,6 +83,15 @@ export class PressComponent implements OnInit {
       .subscribe(dataH => this.saveAndRedirect(dataH), error => console.log(error));
   }
 
+  public redirectToSpecificReplacement(newId: string): void {
+    this.dataService.getSpecificNew(newId)
+      .subscribe(dataH => this.saveAndReplace(dataH), error => console.log(error));
+  }
+
+  private saveAndReplace(dataH: any) {
+    this.lastNew = dataH;
+  }
+
   private saveAndRedirect(dataH: any) {
     localStorage.removeItem('CurrentPress');
     localStorage.setItem('CurrentPress', JSON.stringify(dataH));
@@ -74,5 +100,9 @@ export class PressComponent implements OnInit {
 
   public redirectToHistory(): void {
     this.router.navigate(['./Historial']);
+  }
+
+  public OpenOtherNews(url: string): void {
+    window.open(url, '_blank');
   }
 }

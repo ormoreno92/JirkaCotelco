@@ -12,13 +12,17 @@
 .inner-pane-props img {
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
     margin-bottom: 1pc;
 }
 
 .inner-pane-props p {
     font-family: lato;
     font-weight: lighter;
+}
+
+.inner-pane-props h2 {
+    color: #184a91 !important;
 }
 
 .inner-pane-props:nth-child(1) h2 {
@@ -38,8 +42,7 @@
     width: 9pc;
     height: auto;
     margin-left: -10%;
-    margin-top: -10%;
-    max-height: 6.5pc;
+    margin-top: -10%;    
 }
 
 .inner-results-hotel-name {
@@ -59,15 +62,18 @@
     font-family: lato !important;
     color: #555555 !important;
     text-align: justify !important;
-    text-transform: lowercase !important;
-    font-size: 0.8em !important;    
+    font-size: 0.8em !important;
     display: block;
-    margin: 0 auto;    
+    margin: 0 auto;
     overflow: hidden !important;
 }
 
+.inner-results-hotel-desc::first-letter {
+    text-transform: capitalize !important;
+}
+
 .inner-h {
-    height: 5pc;
+    height: 100%;
 }
 
 .hotel-block {
@@ -75,7 +81,7 @@
     margin-top: 1pc;
     border: 1px solid #c3c3c3;
     padding: 0;
-    height: auto;    
+    height: auto;
 }
 
 .inner-h-p {
@@ -99,7 +105,7 @@
     display: block;
     width: 100%;
     margin-bottom: 1pc;
-        margin-top: -1pc;
+    margin-top: -1pc;
 }
 
 .rnt-floating {

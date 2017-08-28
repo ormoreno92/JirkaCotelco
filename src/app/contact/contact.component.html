@@ -13,20 +13,44 @@
   <div class="panel panel-default">
     <div class="panel-heading">Formulario de Contacto</div>
     <div class="panel-body">
-      <form class="affiliate-form">
+      <div class="jumbotron custom-jumbotrom-affiliate">
+        <p>Los establecimientos de alojamiento y hospedaje interesados en pertenecer a la Asociación Hotelera y Turística de
+          Colombia - COTELCO deben seguir estos pasos: </p>
+        <ol>
+          <li>Diligenciar el formulario de registro a través de la página web</li>
+          <li>Diligenciar y enviar los documentos requeridos</li>
+
+          <ol type="a">
+            <li>Certificado de existencia y representación legal expedido por la Cámara de Comercio correspondiente con vigencia
+              inferior a 30 días.</li>
+            <li>Registro Único Tributario – RUT.</li>
+            <li>Registro Nacional de Turismo vigente.</li>
+            <li>Cédula de ciudadanía del Representante Legal.</li>
+            <li>Certificado de Declaración de Origen de Fondos y Actividades Lícitas.</li>
+            <li>Acta de compromiso de afiliación.</li>
+            <li>Autorización tratamiento datos.</li>
+          </ol>
+
+          <li>Visita de reconocimiento de las instalaciones del establecimiento por parte de COTELCO. </li>
+          <li>Revisión y aprobación por la Junta Directiva del capítulo regional</li>
+          <li>Aprobación final por la Junta Directiva COTELCO Nacional. Necesito en que los documentos e, f y g, se tenga la
+            posibilidad de descargar el documento para que lo diligencien.</li>
+        </ol>
+      </div>
+      <form class="affiliate-form" #values="ngForm" (ngSubmit)="SendContact(values)" id="frmSbt">
         <div class="row">
           <div class="col-md-12">
-            <div class="row">              
+            <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="subject" class="label-form">Asunto<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="subject" required>
+                  <input type="text" class="form-control" id="subject" name="subject" required ngModel>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="sbct" class="label-form">Tipo<span class="mandatory">(*)</span></label>
-                  <select id="sbct" class="label-form" required>
+                  <select id="sbct" class="form-control" required ngModel name="sbct">
                     <option value="" disabled>Seleccione una opción</option>
                     <option *ngFor="let type of types; let i=index" value="{{type.id}}">{{type.name}}</option>
                   </select>
@@ -35,7 +59,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="msg" class="label-form">Mensaje<span class="mandatory">(*)</span></label>
-                  <textarea placeholder="Ingrese su mensaje" required id="msg"></textarea>
+                  <textarea class="form-control" placeholder="Ingrese su mensaje" required id="msg" ngModel name="msg"></textarea>
                 </div>
               </div>
             </div>
@@ -46,43 +70,43 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="uname" class="label-form">Nombres<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="uname">
+                  <input type="text" class="form-control" id="uname" required ngModel name="uname">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="lastnames" class="label-form">Apellidos<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="lastnames">
+                  <input type="text" class="form-control" id="lastnames" required ngModel name="lastnames">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="email" class="label-form">Correo<span class="mandatory">(*)</span></label>
-                  <input type="mail" class="form-control" id="email" required>
+                  <input type="mail" class="form-control" id="email" required ngModel name="email">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="cellphone" class="label-form">Celular<span class="mandatory">(*)</span></label>
-                  <input type="tel" class="form-control" id="cellphone">
+                  <input type="tel" class="form-control" id="cellphone" required ngModel name="cellphone">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="phone" class="label-form">Teléfono</label>
-                  <input type="tel" class="form-control" id="phone">
+                  <input type="tel" class="form-control" id="phone" ngModel name="phone">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="charge" class="label-form">Cargo<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="charge">
+                  <input type="text" class="form-control" id="charge" required ngModel name="charge">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="company" class="label-form">Empresa<span class="mandatory">(*)</span></label>
-                  <input type="text" class="form-control" id="company">
+                  <input type="text" class="form-control" id="company" required ngModel name="company">
                 </div>
               </div>
               <div class="row footer-form-afilliate">
@@ -90,7 +114,7 @@
                   <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf"
                       target="_blank">Política de Tratamiento de Datos</a>:</p>
                   <div class="checkbox">
-                    <label><input type="checkbox" value="">Acepto</label>
+                    <label><input type="checkbox" value="" id="chkAccept">Acepto</label>
                   </div>
                   <input type="submit" class="btn btn-alert" value="Registrar">
                 </div>

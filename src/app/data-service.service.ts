@@ -40,7 +40,10 @@ export class DataServiceService {
     getCategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getCategoriesDocs',
     getSubcategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getSubcategoriesDocs',
     getTopicsDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getTopicsDocs',
-    searchDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/searchDocs/'
+    searchDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/searchDocs/',
+    sendContact: 'http://apps.jirka.co/JSih/webresources/SuggestionREST/',
+    sendAfiliese: 'http://apps.jirka.co/JSih/webresources/ValidatorREST',
+    checkLogin: 'http://apps.jirka.co/JSih/webresources/UserREST/logIn/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -49,6 +52,16 @@ export class DataServiceService {
 
   public getHomeBannerImages(): Observable<HomeBannerImages[]> {
     return this.http.get(this.services.ListaImagenesPortal, this.options)
+      .map(res => res.json());
+  }
+
+  public getHomeVideo(): Observable<any[]> {
+    return this.http.get(this.services.ListaStreaming, this.options)
+      .map(res => res.json());
+  }
+
+  public getInstitutionalDocuments(): Observable<any[]> {
+    return this.http.get(this.services.ListaDocumentos, this.options)
       .map(res => res.json());
   }
 
@@ -194,6 +207,20 @@ export class DataServiceService {
 
   public getlibraryResult(cat: any, scat: any, theme: any, keyword: any): Observable<any[]> {
     return this.http.get(this.services.searchDocs + cat + '/' + scat + '/' + theme + '/' + keyword, this.options)
+      .map(res => res.json());
+  }
+
+  public sendContactForm(dataH: string): any {
+    return this.http.post(this.services.sendContact, dataH, this.options)
+      .map(res => res.json());
+  }
+  public sendAfilieseForm(dataH: string): any {
+    return this.http.post(this.services.sendAfiliese, dataH, this.options)
+      .map(res => res.json());
+  }
+
+  public checkLogin(user: string, password: string): Observable<any> {
+    return this.http.get(this.services.checkLogin + user + '/' + password, this.options)
       .map(res => res.json());
   }
 }

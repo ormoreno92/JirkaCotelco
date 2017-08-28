@@ -11,5 +11,7 @@ export class MarcasCotelcoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public redirect(url): void {
+    window.open(url, '_blank');
+  }
 }

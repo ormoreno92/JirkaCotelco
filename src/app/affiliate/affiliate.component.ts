@@ -23,6 +23,64 @@ export class AffiliateComponent implements OnInit {
     }
   }
 
+  public SendContact(data): void {
+    if (!$('#chkAccept').is(':checked')) {
+      alert('Por favor, acepte la Política de Tratamiento de Datos');
+      return;
+    }
+    let valid = true;
+    $('.form-control').each(function () {
+      if ($(this).prop('required')) {
+        if ($(this).val() === '') {
+          $(this).css('border-color', 'red');
+          valid = false;
+        } else {
+          $(this).css('border-color', 'green');
+        }
+      }
+    });
+    if (this.isNullOrEmpty($('#sbct').val())) {
+      valid = false;
+      $('#sbct').css('border-color', 'red');
+    }
+    if (this.isNullOrEmpty($('#capi').val())) {
+      valid = false;
+      $('#capi').css('border-color', 'red');
+    }
+    if (data.value.password !== data.value.confirm) {
+      valid = false;
+      $('#confirm').css('border-color', 'red');
+      alert('El password y su confirmación no son iguales.');
+    }
+    valid = this.validateEmailN(data.value.email);
+    if (!valid) { return; }
+    const obj = `{
+      "user":
+          {"firstName":"` + data.value.uname + `",
+          "lastNames":"` + data.value.lastnames + `",
+          "username":"` + data.value.email + `",
+          "emailAddress":"` + data.value.email + `",
+          "password":"` + data.value.password + `"},
+      "affiliate":
+          {
+          "tradename":"` + data.value.rz + `",
+          "establishmentName":"` + data.value.nc + `",
+          "rnt":` + data.value.rnt + `,
+          "rut":"` + data.value.rut + `",
+          "legalRepresentative":"` + data.value.rl + `",
+          "commercialAddress":"` + data.value.address + `",
+          "subcategory":` + $('#sbct').val() + `,
+          "chapter":
+          {
+              "id": ` + $('#capi').val() + `
+          },
+          "state":2}
+      }`;
+    console.log(obj);
+    this.dataService.sendAfilieseForm(obj)
+      .subscribe(dataH => console.log(dataH), error => console.log(error));
+  }
+
   public validateRnt(event: any): void {
     if (event.target.value != null && event.target.value !== '') {
       this.dataService.validateRnt(event.target.value)
@@ -65,5 +123,16 @@ export class AffiliateComponent implements OnInit {
   private isValidEmailAddress(emailAddress: string): boolean {
     const pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
     return pattern.test(emailAddress);
+  }
+
+  private isNullOrEmpty(data: any): boolean {
+    if (data === null || data === '') { return true };
+    return false;
+  }
+
+  private validateEmailN(email: string): boolean {
+    const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    if (!email_regex.test(email)) { $('#email').css('border-color', 'red'); return false; }
+    return true;
   }
 }
