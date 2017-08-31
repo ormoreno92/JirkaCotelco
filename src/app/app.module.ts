@@ -7,6 +7,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { DataServiceService } from './data-service.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
+// import { sweetalert } from 'sweetalert';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -144,7 +145,8 @@ import { LoginComponent } from './login/login.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoq2mhUKq6Tmor5ud7_X9aJAC3X8AYgTU',
       language: 'es'
-    })
+    }),
+    // sweetalert
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

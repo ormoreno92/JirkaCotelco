@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AffiliatesModComponent implements OnInit {
   hotel;
   images;
-  services;
+  services = [];
   lat;
   lng;
   brandings;
@@ -24,7 +24,12 @@ export class AffiliatesModComponent implements OnInit {
     console.log(dataH);
     this.hotel = dataH;
     this.images = this.hotel.photoList;
-    this.services = this.hotel.servicesList;
+    console.log(this.hotel.servicesList);
+    this.hotel.servicesList.forEach(service => {
+      if (service.image != null && service.image !== 'null' && service.image !== '') {
+        this.services.push(service)
+      }
+    });
     this.brandings = this.hotel.certificationsList;
     this.lat = this.hotel.latitude;
     this.lng = this.hotel.longitude;
@@ -34,5 +39,12 @@ export class AffiliatesModComponent implements OnInit {
     const limit = 50;
     const trail = '...';
     return nText.length > limit ? nText.substring(0, limit) + trail : nText;
+  }
+
+  public goToExternalHotel(url: string): void {
+    if (url && !url.match(/^http([s]?):\/\/.*/)) {
+      url = 'http://' + url;
+    }
+    window.open(url, '_blank');
   }
 }
