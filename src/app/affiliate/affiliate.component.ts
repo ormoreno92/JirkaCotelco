@@ -135,4 +135,8 @@ export class AffiliateComponent implements OnInit {
     if (!email_regex.test(email)) { $('#email').css('border-color', 'red'); return false; }
     return true;
   }
+  
+  public downloadDocument(url: string): void {
+    window.open(url, '_blank');
+  }
 }

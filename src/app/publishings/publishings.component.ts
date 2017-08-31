@@ -72,18 +72,28 @@ export class PublishingsComponent implements OnInit {
     return false;
   }
   private SetContent(dataH: any): void {
-    console.log(dataH);
     this.library = dataH;
     if (this.library != null) {
       if (this.library.length < 1) {
         this.innerMessage = 'No se encontraron resultados para su búsqueda.';
+        return;
       }
     } else {
       this.innerMessage = 'No se encontraron resultados para su búsqueda.';
+      return;
     }
+    // this.PaginateContent();
   }
 
   public DownloadDocument(url: any): void {
     window.open(url, '_blank');
+  }
+
+  private PaginateContent(): void {
+    $('#easyPaginate').easyPaginate({
+      paginateElement: 'div',
+      elementsPerPage: 3,
+      effect: 'climb'
+    });
   }
 }

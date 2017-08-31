@@ -25,6 +25,7 @@ export class ConsultanciesComponent implements OnInit {
 
   public changeSelector(val: any, type: number): void {
     this.current = this.getCurrentAllie(val).linesList;
+    this.current_title = this.getCurrentAllie(val).name;
     switch (type) {
       case 0:
         this.current_color = '#F9B42B';
@@ -44,7 +45,6 @@ export class ConsultanciesComponent implements OnInit {
 
   private drawConsultors(dataH: any): void {
     this.consultancies = dataH
-    console.log(dataH);
     this.current_title = this.consultancies[0].name;
     this.current = this.getCurrentAllie(this.consultancies[0].id).linesList;
   }

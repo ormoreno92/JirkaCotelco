@@ -48,8 +48,11 @@ export class AboutComponent implements OnInit {
     return text;
   }
 
-  public downloadDocument(url: string): void {
-    window.open(url, '_blank');
+  public downloadDocument(url: string, valid: boolean): void {
+    if (valid) {
+      window.open(url, '_blank');
+    }
+
   }
 
   private PaginateContent(): void {
@@ -61,13 +64,14 @@ export class AboutComponent implements OnInit {
   }
 
   private SetContent(dataH: any): void {
-    const nArr = [];
+    /*const nArr = [];
     for (let index = 0; index < dataH.length; index++) {
       if (dataH[index].showInvited) {
         nArr.push(dataH[index]);
       }
-    }
-    this.docs = nArr;
+    }*/
+    this.docs = dataH;
+    console.log(dataH);
     this.PaginateContent();
   }
 }

@@ -57,12 +57,12 @@
       <div class="col-md-9 righty-siding" style="max-width: 862px;">
         <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}" (click)="goToHotel(image.id)">
+            <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
               <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
               <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}">
               </div>
               <div class="carousel-caption">
-                <h1>{{image.name}}</h1>
+                <h1>{{image.description}}</h1>
               </div>
               <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>

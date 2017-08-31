@@ -26,16 +26,16 @@
             <li>Registro Único Tributario – RUT.</li>
             <li>Registro Nacional de Turismo vigente.</li>
             <li>Cédula de ciudadanía del Representante Legal.</li>
-            <li>Certificado de Declaración de Origen de Fondos y Actividades Lícitas.</li>
-            <li>Acta de compromiso de afiliación.</li>
-            <li>Autorización tratamiento datos.</li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/9ae49f92-6f3f-42a9-a31d-8ded606f6bfd.docx&type=generalDocument');">Certificado de declaración de origen de fondos y actividades lícitas.</li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/75cac27b-6c6d-41a1-9ef7-0093407ad71d.docx&type=generalDocument');">Acta de compromiso de afiliación.</li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/fbeff03d-8be6-46be-b7a3-17631cd65302.docx&type=generalDocument');">Autorización tratamiento datos.</li>
           </ol>
 
           <li>Visita de reconocimiento de las instalaciones del establecimiento por parte de COTELCO. </li>
           <li>Revisión y aprobación por la Junta Directiva del capítulo regional</li>
-          <li>Aprobación final por la Junta Directiva COTELCO Nacional. Necesito en que los documentos e, f y g, se tenga la
-            posibilidad de descargar el documento para que lo diligencien.</li>
+          <li>Aprobación final por la Junta Directiva COTELCO Nacional.</li>
         </ol>
+        Recuerde que este es un prerregistro. El diligenciamiento del formulario no implica su aceptación
       </div>
       <form class="affiliate-form" #values="ngForm" (ngSubmit)="SendContact(values)" id="frmSbt">
         <div class="row">
@@ -126,7 +126,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label for="confirm" class="label-form">Confirmar<span class="mandatory">(*)</span></label>
+                  <label for="confirm" class="label-form">Confirmar Contraseña<span class="mandatory">(*)</span></label>
                   <input type="password" class="form-control" id="confirm" name="confirm" required ngModel>
                 </div>
               </div>
