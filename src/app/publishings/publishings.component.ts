@@ -73,6 +73,7 @@ export class PublishingsComponent implements OnInit {
   }
   private SetContent(dataH: any): void {
     this.library = dataH;
+    console.log(this.library);
     if (this.library != null) {
       if (this.library.length < 1) {
         this.innerMessage = 'No se encontraron resultados para su búsqueda.';
@@ -82,6 +83,11 @@ export class PublishingsComponent implements OnInit {
       this.innerMessage = 'No se encontraron resultados para su búsqueda.';
       return;
     }
+    this.library.forEach(el => {
+      if (el.image == null || el.image === 'null' || el.image === '') {
+        el.image = './assets/img/sala_prensa_black.png';
+      }
+    });
     // this.PaginateContent();
   }
 

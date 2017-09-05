@@ -41,9 +41,11 @@ export class DataServiceService {
     getSubcategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getSubcategoriesDocs',
     getTopicsDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getTopicsDocs',
     searchDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/searchDocs/',
+    filterNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/searchNews/',
     sendContact: 'http://apps.jirka.co/JSih/webresources/SuggestionREST/',
     sendAfiliese: 'http://apps.jirka.co/JSih/webresources/ValidatorREST',
-    checkLogin: 'http://apps.jirka.co/JSih/webresources/UserREST/logIn/'
+    checkLogin: 'http://apps.jirka.co/JSih/webresources/UserREST/authenticateUser/',
+    getNewsTypes: ''
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -190,6 +192,11 @@ export class DataServiceService {
       .map(res => res.json());
   }
 
+  public getNewsTypes(): Observable<any[]> {
+    return this.http.get(this.services.getNewsTypes, this.options)
+      .map(res => res.json());
+  }
+
   public getCategoriesDocs(): Observable<any> {
     return this.http.get(this.services.getCategoriesDocs, this.options)
       .map(res => res.json());
@@ -207,6 +214,11 @@ export class DataServiceService {
 
   public getlibraryResult(cat: any, scat: any, theme: any, keyword: any): Observable<any[]> {
     return this.http.get(this.services.searchDocs + cat + '/' + scat + '/' + theme + '/' + keyword, this.options)
+      .map(res => res.json());
+  }
+
+  public getNewsFilter(date: any, type: any, keyword: any): Observable<any[]> {
+    return this.http.get(this.services.filterNews + date + '/' + type + '/' + keyword, this.options)
       .map(res => res.json());
   }
 

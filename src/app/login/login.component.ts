@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectToUrl(rsp: any, url: string): void {
-    if (this.isNullOrEmpty(rsp)) {
+    console.log(rsp);
+    if (!rsp) {
       $('.loginError').show();
       return;
     }

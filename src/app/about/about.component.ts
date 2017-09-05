@@ -52,7 +52,8 @@ export class AboutComponent implements OnInit {
     if (valid) {
       window.open(url, '_blank');
     }
-
+    localStorage.setItem('redirectLoginUrl', url);
+    $('#loginModal').click();
   }
 
   private PaginateContent(): void {
@@ -64,14 +65,12 @@ export class AboutComponent implements OnInit {
   }
 
   private SetContent(dataH: any): void {
-    /*const nArr = [];
-    for (let index = 0; index < dataH.length; index++) {
-      if (dataH[index].showInvited) {
-        nArr.push(dataH[index]);
-      }
-    }*/
     this.docs = dataH;
-    console.log(dataH);
+    this.docs.forEach(el => {
+      if (el.image == null || el.image === 'null' || el.image === '') {
+        el.image = './assets/img/sala_prensa_black.png';
+      }
+    });
     this.PaginateContent();
   }
 }

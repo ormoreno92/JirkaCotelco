@@ -48,7 +48,7 @@ export class AlliesComponent implements OnInit {
   }
 
   public isNullOrEmpty(data: any): boolean {
-    if (data === null || data === '') { return true };
+    if (data === null || data === '' || data === 'null') { return true };
     return false;
   }
 

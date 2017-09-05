@@ -26,9 +26,24 @@
             <li>Registro Único Tributario – RUT.</li>
             <li>Registro Nacional de Turismo vigente.</li>
             <li>Cédula de ciudadanía del Representante Legal.</li>
-            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/9ae49f92-6f3f-42a9-a31d-8ded606f6bfd.docx&type=generalDocument');">Certificado de declaración de origen de fondos y actividades lícitas.</li>
-            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/75cac27b-6c6d-41a1-9ef7-0093407ad71d.docx&type=generalDocument');">Acta de compromiso de afiliación.</li>
-            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/fbeff03d-8be6-46be-b7a3-17631cd65302.docx&type=generalDocument');">Autorización tratamiento datos.</li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/9ae49f92-6f3f-42a9-a31d-8ded606f6bfd.docx&type=generalDocument');">
+              <span class="contact-text">
+              Certificado de declaración de origen de fondos y actividades lícitas.
+            </span>
+              <div class="tooltip-text">
+                Descargar
+              </div>
+            </li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/75cac27b-6c6d-41a1-9ef7-0093407ad71d.docx&type=generalDocument');">
+              <span class="contact-text">Acta de compromiso de afiliación.</span>
+              <div class="tooltip-text">Descargar
+              </div>
+            </li>
+            <li style="cursor: pointer; text-decoration: underline;" (click)="downloadDocument('http://apps.jirka.co/JSih/DownloadEngine?path=generalDocument/fbeff03d-8be6-46be-b7a3-17631cd65302.docx&type=generalDocument');">
+              <span class="contact-text">Autorización tratamiento datos.</span>
+              <div class="tooltip-text">Descargar
+              </div>
+            </li>
           </ol>
 
           <li>Visita de reconocimiento de las instalaciones del establecimiento por parte de COTELCO. </li>
@@ -83,7 +98,8 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="capi" class="label-form">Capítulo<span class="mandatory">(*)</span></label>
-                  <select id="capi" class="form-control" name="capi" required ngModel>
+                  <select data-tooltip-text='Indique el capítulo Cotelco al que desea afiliarse. Si en su departamento no hay capítulo constituido, por favor seleccione Cotelco Nacional'
+                    id="capi" class="form-control ntooltip" name="capi" required ngModel>
                     <option value="" disabled>Seleccione una opción</option>
                     <option *ngFor="let chapter of chapters; let i=index" value="{{chapter.id}}">{{chapter.name}}</option>
                   </select>

@@ -13,11 +13,14 @@ declare var $: any;
 })
 export class PressHistoryComponent implements OnInit {
   news;
+  categories = [];
   constructor(private dataService: DataServiceService, private router: Router) { }
 
   ngOnInit() {
     this.dataService.getlastNews()
       .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
+    this.dataService.getNewsTypes()
+      .subscribe(dataH => this.categories = dataH, error => console.log(error));
   }
 
   public redirectToSpecific(newId: string): void {
@@ -56,5 +59,24 @@ export class PressHistoryComponent implements OnInit {
   public isNullOrEmpty(data: any): boolean {
     if (data === null || data === '') { return true };
     return false;
+  }
+
+  public searchNews(data): void {
+    let date = null;
+    let type = null;
+    let keyword = null;
+    let valid = false;
+    if (!this.isNullOrEmpty(data.value.date)) {
+      date = data.value.date;
+      valid = true
+    };
+    if (!this.isNullOrEmpty(data.value.type)) { type = data.value.type; valid = true };
+    if (!this.isNullOrEmpty(data.value.kw)) { keyword = data.value.kw; valid = true };
+    if (!valid) {
+      alert('Seleccione alguna opción o agregue si desea una palabra clave.');
+      return;
+    }
+    this.dataService.getNewsFilter(date, type, keyword)
+      .subscribe(dataH => this.SetContent(dataH), error => console.log(error));
   }
 }

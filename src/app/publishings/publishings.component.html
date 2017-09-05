@@ -80,7 +80,7 @@
       <ng-template #thenBlock>
         <div class="col-md-12 inner-library-a" *ngFor="let lib of library" style="cursor:pointer;">
           <div class="col-md-2">
-            <img src="./assets/img/sala_prensa_black.png" alt="Documento" class="lefty-img">
+            <img src="{{lib.image}}" alt="Documento" class="lefty-img">
           </div>
           <div class="col-md-10">
             <span class="libDate">{{lib.publicationDate}}</span>

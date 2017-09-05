@@ -21,6 +21,7 @@ export class AffiliateComponent implements OnInit {
     function Ctrl($scope) {
       $scope.text = 'me@example.com';
     }
+    this.setToolTip();
   }
 
   public SendContact(data): void {
@@ -135,8 +136,31 @@ export class AffiliateComponent implements OnInit {
     if (!email_regex.test(email)) { $('#email').css('border-color', 'red'); return false; }
     return true;
   }
-  
+
   public downloadDocument(url: string): void {
     window.open(url, '_blank');
+  }
+
+  private setToolTip(): void {
+    const tooltip = $('.ntooltip');
+    tooltip.each(function () {
+      const $this = $(this),
+        tooltipText = $('<div class="tooltip-text" style="background-color: #F9B42B;color: white;left: 0;' +
+          'padding: 5px;position: absolute;top: 0;border-radius: 5px;font-weight: bold;max-width: 15pc;">' +
+          $this.data('tooltip-text') + '</div>');
+      $this.on('mouseover', function () {
+        tooltipText.appendTo('body');
+      });
+
+      $this.on('mouseout', function () {
+        tooltipText.remove();
+      });
+
+      $this.on('mousemove', function (e) {
+        tooltipText.css('top', (e.pageY + 20) + 'px');
+        tooltipText.css('left', (e.pageX + 20) + 'px');
+      });
+
+    });
   }
 }
