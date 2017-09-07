@@ -49,8 +49,9 @@ export class AboutComponent implements OnInit {
   }
 
   public downloadDocument(url: string, valid: boolean): void {
-    if (valid) {
+    if (!valid) {
       window.open(url, '_blank');
+      return;
     }
     localStorage.setItem('redirectLoginUrl', url);
     $('#loginModal').click();

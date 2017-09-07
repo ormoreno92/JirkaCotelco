@@ -78,7 +78,7 @@
     <div class="row-fluid inner-library-results">
       <div class="row" *ngIf="library?.length > 0; then thenBlock else elseBlock"></div>
       <ng-template #thenBlock>
-        <div class="col-md-12 inner-library-a" *ngFor="let lib of library" style="cursor:pointer;">
+        <div class="col-md-12 inner-library-a" *ngFor="let lib of library | paginate: { itemsPerPage: 5, currentPage: p }" style="cursor:pointer;">
           <div class="col-md-2">
             <img src="{{lib.image}}" alt="Documento" class="lefty-img">
           </div>
@@ -86,8 +86,12 @@
             <span class="libDate">{{lib.publicationDate}}</span>
             <h4 class="libTitle">{{lib.name}}</h4>
             <p class="libdesc">{{lib.summary}}</p>
-            <span class="btn btn-danger btn-rr" (click)="DownloadDocument(lib.url)">DESCARGAR</span>
+            <span class="btn btn-danger btn-rr" (click)="DownloadDocument(lib.url, lib.reqAuth)">DESCARGAR</span>
           </div>
+        </div>
+        <div class="has-text-centered col-md-12">
+          <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+            screenReaderCurrentLabel=" "></pagination-controls>
         </div>
       </ng-template>
       <ng-template #elseBlock>

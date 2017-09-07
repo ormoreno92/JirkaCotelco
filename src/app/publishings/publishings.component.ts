@@ -73,7 +73,6 @@ export class PublishingsComponent implements OnInit {
   }
   private SetContent(dataH: any): void {
     this.library = dataH;
-    console.log(this.library);
     if (this.library != null) {
       if (this.library.length < 1) {
         this.innerMessage = 'No se encontraron resultados para su búsqueda.';
@@ -88,11 +87,16 @@ export class PublishingsComponent implements OnInit {
         el.image = './assets/img/sala_prensa_black.png';
       }
     });
-    // this.PaginateContent();
+    this.PaginateContent();
   }
 
-  public DownloadDocument(url: any): void {
-    window.open(url, '_blank');
+  public DownloadDocument(url: string, valid: boolean): void {
+    if (!valid) {
+      window.open(url, '_blank');
+      return;
+    }
+    localStorage.setItem('redirectLoginUrl', url);
+    $('#loginModal').click();
   }
 
   private PaginateContent(): void {

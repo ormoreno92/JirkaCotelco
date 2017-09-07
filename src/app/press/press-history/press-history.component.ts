@@ -43,7 +43,10 @@ export class PressHistoryComponent implements OnInit {
   }
 
   private SetContent(dataH: any): void {
-    console.log(dataH);
+    if (dataH == null) {
+      this.news = [];
+      return;
+    }
     for (let index = 0; index < dataH.length; index++) {
       const currentTime = new Date(dataH[index].publicationDate)
       const month = currentTime.getMonth() + 1

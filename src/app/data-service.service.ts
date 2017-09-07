@@ -15,7 +15,7 @@ export class DataServiceService {
     ListaImagenesPortal: 'http://apps.jirka.co/JSih/webresources/ImagesPortalREST/getImagesPortal',
     ListaAfiliados: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliates',
     ListaEventos: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEvents',
-    ListaDocumentos: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getDocuments',
+    ListaDocumentos: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getDocumentsInstitutionnels',
     ListaAliados: 'http://apps.jirka.co/JSih/webresources/PartnersREST/getPartnersCategories',
     AfiliadoHotel: 'http://apps.jirka.co/JSih/webresources/AffiliateREST/getAffiliate/',
     ListaPublik: 'http://apps.jirka.co/JSih/webresources/PublikREST/getMessagues',
@@ -36,7 +36,7 @@ export class DataServiceService {
     getCotelcoServices: 'http://apps.jirka.co/JSih/webresources/UtilityREST/getServicesCotelco',
     getPressAllies: 'http://apps.jirka.co/JSih/webresources/NewsREST/getAlliesNews',
     getLastNew: 'http://apps.jirka.co/JSih/webresources/NewsREST/getLastNewsByType/',
-    getLastNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNewsHistory',
+    getLastNews: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNews',
     getCategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getCategoriesDocs',
     getSubcategoriesDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getSubcategoriesDocs',
     getTopicsDocs: 'http://apps.jirka.co/JSih/webresources/GeneralDocumentsREST/getTopicsDocs',
@@ -45,7 +45,12 @@ export class DataServiceService {
     sendContact: 'http://apps.jirka.co/JSih/webresources/SuggestionREST/',
     sendAfiliese: 'http://apps.jirka.co/JSih/webresources/ValidatorREST',
     checkLogin: 'http://apps.jirka.co/JSih/webresources/UserREST/authenticateUser/',
-    getNewsTypes: ''
+    getNewsTypes: 'http://apps.jirka.co/JSih/webresources/NewsREST/getNewsTypes',
+    getTrainningChapters: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainingByChapters',
+    searchTrainnings: 'http://apps.jirka.co/JSih/webresources/TrainingREST/searchTrainings/',
+    getTrainnings: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainings',
+    getTrainningsByChapter: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainingsByChapter/',
+    getSpecificTrainning: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTraining/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -114,6 +119,11 @@ export class DataServiceService {
 
   public getHotelDetails(hotelId: any): Observable<any> {
     return this.http.get(this.services.AfiliadoHotel + hotelId, this.options)
+      .map(res => res.json());
+  }
+
+  public getTrainningDetails(id: any): Observable<any> {
+    return this.http.get(this.services.getSpecificTrainning + id, this.options)
       .map(res => res.json());
   }
 
@@ -233,6 +243,21 @@ export class DataServiceService {
 
   public checkLogin(user: string, password: string): Observable<any> {
     return this.http.get(this.services.checkLogin + user + '/' + password, this.options)
+      .map(res => res.json());
+  }
+
+  public getTrainnings(): Observable<any> {
+    return this.http.get(this.services.getTrainnings, this.options)
+      .map(res => res.json());
+  }
+
+  public getTrainningChapters(): Observable<any> {
+    return this.http.get(this.services.getTrainningChapters, this.options)
+      .map(res => res.json());
+  }
+
+  public getTrainningsByChapter(id: number): Observable<any[]> {
+    return this.http.get(this.services.getTrainningsByChapter + id, this.options)
       .map(res => res.json());
   }
 }

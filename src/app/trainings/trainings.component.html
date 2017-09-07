@@ -34,14 +34,14 @@
           <div id="sec1" class="tab-pane active">
             <div class="col-md-4" *ngFor="let capacitacion of capacitaciones; let i=index">
               <div class="row-fluid">
-                <div class="inner-training" (click)="RedirectTo(capacitacion.link)">
-                  <img src="{{capacitacion.url}}" alt="{{capacitacion.title}}">
+                <div class="inner-training" (click)="RedirectTo(capacitacion.id)">
+                  <img src="{{capacitacion.piece}}" alt="{{capacitacion.name}}">
                   <span class="trining-date">
-                    {{capacitacion.startDate}}
+                    {{capacitacion.startDate |  date:'MM/dd/yyyy'}}
                   </span>
-                  <span class="training-title">{{capacitacion.title}}</span>
+                  <span class="training-title">{{capacitacion.name}}</span>
                   <p class="training-description">
-                    {{capacitacion.description}}
+                    {{htmlToPlaintext(capacitacion.summary,100)}}
                   </p>
                 </div>
               </div>
@@ -53,18 +53,9 @@
     <div class="col-md-3">
       <div class="row">
         <ul class="nav nav-pills nav-stacked lefty-menu">
-          <li class="active">
-            <a data-toggle="pill" href="#sec1">Bogotá</a>
+          <li *ngFor="let capitulo of capitulos; let i=index">
+            <a data-toggle="pill" (click)="getByChapter(capitulo.id)">{{capitulo.name}}</a>
           </li>
-          <!--<li>
-            <a data-toggle="pill" href="#sec2">VISIÓN</a>
-          </li>
-          <li>
-            <a data-toggle="pill" href="#sec3">HISTORIA</a>
-          </li>
-          <li>
-            <a data-toggle="pill" href="#sec4">FUNCIONARIOS</a>
-          </li>-->
         </ul>
       </div>
     </div>

@@ -33,6 +33,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PressViewComponent } from './press/press-view/press-view.component';
 import { PressHistoryComponent } from './press/press-history/press-history.component';
 import { LoginComponent } from './login/login.component';
+import { TriningDetailComponent } from './trainings/trining-detail/trining-detail.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     PressViewComponent,
     PressHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    TriningDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -139,6 +141,10 @@ import { LoginComponent } from './login/login.component';
       {
         path: '\Historial',
         component: PressHistoryComponent
+      },
+      {
+        path: '\Capacitacion',
+        component: TriningDetailComponent
       }
     ]),
     AlertModule.forRoot(),
