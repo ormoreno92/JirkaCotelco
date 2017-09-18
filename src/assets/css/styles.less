@@ -4,25 +4,27 @@
 
 @body-bg: #ffffff;
 @brand-primary: #184A91;
+@brand-blue: #0066b2;
 @brand-success: #F9B42B;
-@brand-info: #5bc0de;
-@brand-warning: #5cb85c;
+@brand-info: #00adee;
+@brand-warning: #4bb649;
 @brand-danger: #d9534f;
-@navbar-default-link-hover-bg: #F9B42B;
+@navbar-default-link-hover-bg: #4bb649;
 @navbar-default-bg: #ffffff;
 @navbar-default-border: transparent;
 @text-color: #000000;
 @link-color: @brand-primary;
 @link-hover-color: lighten(@link-color, 15%);
 @btn-default-color: White;
-@btn-primary-color: Black;
-@btn-default-bg: #184A91;
-@btn-primary-bg: #F9B42B;
-@btn-alert: #E02727;
-@navbar-default-color: #184A91;
-@navbar-default-link-color: #184A91;
+@btn-primary-color: White;
+@btn-default-bg: @brand-warning;
+@btn-primary-bg: @brand-warning;
+@btn-alert: @navbar-default-link-hover-bg;
+@brand-danger: @navbar-default-link-hover-bg;
+@navbar-default-color: @brand-primary;
+@navbar-default-link-color: @brand-primary;
 @navbar-default-link-hover-color: lighten(@navbar-default-link-color, 15%);
-@navbar-default-color: #184A91;
+@navbar-default-color: @brand-warning;
 @default-animation-speed: 500ms;
 @nav-pills-border-radius: 0;
 body {
@@ -30,7 +32,7 @@ body {
 }
 
 a {
-    color: @link-color;
+    color: @navbar-default-link-hover-bg;
     text-decoration: none;
     &:hover {
         color: @link-hover-color;
@@ -70,7 +72,7 @@ body {
     font-family: "Open Sans";
     font-size: 0.8em;
     font-weight: lighter;
-    color: #184A91;
+    color: @brand-blue;
 }
 
 .inner-menu-upper {
@@ -109,11 +111,11 @@ body {
 }
 
 .logo-menu {
-    max-width: 12pc;
+    max-width: 15pc;
 }
 
 .navbar-nav li a {
-    color: #184A91;
+    color: @brand-blue;
     font-weight: bold;
     font-family: @font-family-open-sans;
 }
@@ -137,7 +139,7 @@ body {
 }
 
 footer {
-    background-color: @brand-primary;
+    background-color: @brand-blue;
     color: white;
     font-size: 0.9em;
     padding-top: 1pc;
@@ -158,7 +160,7 @@ footer {
 }
 
 .custom-row-footer {
-    background-color: #305C9C;
+    background-color: @brand-info;
     height: 2pc;
     margin-top: 2pc;
 }
@@ -213,7 +215,7 @@ footer {
 }
 
 .title-home {
-    color: #1A171C;
+    color: @brand-blue;
     text-align: center;
     font-weight: bold;
 }
@@ -237,21 +239,31 @@ footer {
 
 .yellow-bar {
     height: 0.5pc;
-    background: @brand-success;
+    background: @brand-info;
 }
 
 .yellow-container {
     min-height: 5pc;
     padding-top: 1pc;
     padding-bottom: 1pc;
-    background: @brand-success;
+    background: @brand-info;
+    height: auto;
+    float: left;
+    width: 100%;
+}
+
+.blue-container {
+    min-height: 5pc;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    background: @brand-blue;
     height: auto;
     float: left;
     width: 100%;
 }
 
 .blue-bar {
-    background: @brand-primary;
+    background: @brand-blue;
 }
 
 .inner-menu-bar {
@@ -328,7 +340,7 @@ footer {
 }
 
 .title-inner-section {
-    background: rgba(24, 74, 145, 0.6);
+    background: rgba(0, 102, 178, 0.6);
     width: 60%;
     margin-top: 2%;
     position: relative;
@@ -355,6 +367,14 @@ footer {
 .about-img {
     background-color: transparent;
     background-image: url('../img/about.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 40%;
+}
+
+.chapters-img {
+    background-color: transparent;
+    background-image: url('../img/chapters.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position-y: 40%;

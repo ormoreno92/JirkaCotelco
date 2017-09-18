@@ -19,11 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "./assets/css/styles.css"
+        "./assets/css/styles.css",
+        "./assets/css/map/style.css",
+        "./assets/css/map/cssmap-colombia.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "./assets/js/map/jquery.cssmap.min.js",
+        "./assets/js/map/script.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
