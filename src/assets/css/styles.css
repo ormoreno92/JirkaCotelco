@@ -3971,7 +3971,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #00adee !important;
+  background-color: rgba(0, 102, 178, 0.7) !important;
   color: white;
 }
 .nav > li.disabled > a {
@@ -4083,7 +4083,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #00adee !important;
+  background-color: rgba(0, 102, 178, 0.7) !important;
 }
 .nav-stacked > li {
   float: none;
@@ -4324,7 +4324,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 100%;
 }
 .navbar-nav > li {
-  background-color: white;
+  background-color: transparent;
 }
 .navbar-nav > li:hover {
   background-color: #AD310B;
@@ -4704,6 +4704,9 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
+}
+.navbar-nav li:hover a {
+  color: white !important;
 }
 .breadcrumb {
   padding: 8px 15px;
@@ -5486,7 +5489,11 @@ button.list-group-item-danger.active:focus {
 .panel-title > .small,
 .panel-title > small > a,
 .panel-title > .small > a {
-  color: inherit;
+  color: white !important;
+}
+.panel-title:hover > a,
+.panel-title:focus > a {
+  color: white !important;
 }
 .panel-footer {
   padding: 10px 15px;
@@ -5695,14 +5702,14 @@ button.list-group-item-danger.active:focus {
 }
 .panel-default > .panel-heading {
   color: white;
-  background-color: #575e60;
-  border-color: #575e60;
+  background-color: #0066b2;
+  border-color: #0066b2;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: white;
 }
 .panel-default > .panel-heading .badge {
-  color: #575e60;
+  color: #0066b2;
   background-color: white;
 }
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
@@ -5797,6 +5804,9 @@ button.list-group-item-danger.active:focus {
 }
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
+}
+.panel-collapse {
+  box-shadow: 4px 3px 13px 0px #c3c3c3;
 }
 .embed-responsive {
   position: relative;
@@ -7021,6 +7031,10 @@ footer > .container-fluid > .custom-row-footer {
   padding-top: 1pc;
   margin-top: 2pc;
   width: 16%;
+  box-shadow: 3px 3px 3px 1px #c3c3c3;
+}
+.form-allies2 {
+  box-shadow: -3px 3px 3px 1px #c3c3c3;
 }
 .lefty {
   display: inline-block;

@@ -1,5 +1,7 @@
 import { DataServiceService } from '../data-service.service';
 import { Component, OnInit } from '@angular/core';
+declare var Jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-affiliates-mod',
@@ -46,5 +48,9 @@ export class AffiliatesModComponent implements OnInit {
       url = 'http://' + url;
     }
     window.open(url, '_blank');
+  }
+
+  public openmap(): void {
+    $('#mapModal').click();
   }
 }

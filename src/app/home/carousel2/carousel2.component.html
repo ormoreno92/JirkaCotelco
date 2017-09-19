@@ -38,7 +38,7 @@
             <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.photo+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}"
               (click)="goToHotel(image.id)"> </div>
             <div class="carousel-caption">
-              <h1>{{image.tradename}} - {{image.city}}</h1>
+              <h1>{{image.tradename}} - {{image.city.name}}</h1>
             </div>
             <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
           </div>

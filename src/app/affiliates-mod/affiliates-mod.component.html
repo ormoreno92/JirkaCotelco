@@ -106,7 +106,7 @@
   </div>
   <div class="row white-row">
     <div class="container inner-content-hotel">
-      <div class="col-md-4" id="maps">
+      <div class="col-md-4" id="maps" (click)="openmap()">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map>
@@ -118,5 +118,22 @@
   </div>
   <div class="row gray-row gray-row2 services-list-hotel">
     <img *ngFor="let brand of brandings; let i=index" class="serviceImage2" src="{{brand.image}}" alt="">
+  </div>
+</div>
+
+<button id="mapModal" type="button" style="display: none !important;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myMapModal"></button>
+<div id="myMapModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header  blue-back">
+        <button type="button" id="closeLogin" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{hotel.tradename}}</h4>
+      </div>
+      <div class="modal-body">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
   </div>
 </div>
