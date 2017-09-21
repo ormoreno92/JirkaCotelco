@@ -15,6 +15,7 @@ export class AffiliatesModComponent implements OnInit {
   lat;
   lng;
   brandings;
+  currentImage;
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -23,10 +24,8 @@ export class AffiliatesModComponent implements OnInit {
       .subscribe(dataH => this.drawHotel(dataH), error => console.log(error));
   }
   private drawHotel(dataH) {
-    console.log(dataH);
     this.hotel = dataH;
     this.images = this.hotel.photoList;
-    console.log(this.hotel.servicesList);
     this.hotel.servicesList.forEach(service => {
       if (service.image != null && service.image !== 'null' && service.image !== '') {
         this.services.push(service)
@@ -52,5 +51,10 @@ export class AffiliatesModComponent implements OnInit {
 
   public openmap(): void {
     $('#mapModal').click();
+  }
+
+  public openImage(url: string): void {
+    this.currentImage = url;
+    $('#imageModal').click();
   }
 }

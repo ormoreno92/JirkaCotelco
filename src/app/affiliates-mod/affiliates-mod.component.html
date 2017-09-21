@@ -59,7 +59,7 @@
           <div class="carousel-inner">
             <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
               <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-              <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}">
+              <div (click)="openImage(image.image)" class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}">
               </div>
               <div class="carousel-caption">
                 <h1>{{image.description}}</h1>
@@ -133,6 +133,20 @@
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="imageModal" type="button" style="display: none !important;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myImgModal"></button>
+<div id="myImgModal" class="modal fade" role="dialog">
+  <div class="modal-dialog imageModal">
+    <div class="modal-content imageModalContent">
+      <div class="modal-header  blue-back imageModalHeader">
+        <button type="button" id="closeLogin" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body imageModalBody">
+        <img id="customPopImg" src="{{currentImage}}" alt="image">
       </div>
     </div>
   </div>

@@ -41,7 +41,7 @@ export class ContactComponent implements OnInit {
     valid = this.validateEmail(data.value.email);
     valid = this.validatePhone(data.value.cellphone);
     if (!valid) { return; }
-    const obj = `{
+    /*const obj = `{
       "title":"` + data.value.subject + `",
       "message":"` + data.value.msg + `",
       "file":null,
@@ -62,7 +62,30 @@ export class ContactComponent implements OnInit {
       {
           "id":` + $('#sbct').val() + `
       }
-      }`;
+  }`;*/
+
+    const obj = `{
+    "title":"solicitud de información",
+    "message":"Solicito información sobre estadísticas del mes de julio",
+    "file":"suggestions/6beb8e84-4c6f-4c3c-8fee-2c451c971775.jpg",
+    "state":1,
+    "externalUser":
+    {
+     "firstName":"Angel Miguel",
+     "lastName":"Sanchez",
+     "emailAddress":"miguel@jirka.co",
+     "cellPhone":"3152485826",
+     "phone":"0314852457",
+     "chargeName":"Gerente",
+     "company":"Jirka",
+     "acceptInforPolicy":1,
+     "state":2
+    },
+    "suggestionType":
+    {
+     "id":1
+    }
+   }`
     console.log(obj);
     this.dataService.sendContactForm(obj)
       .subscribe(dataH => console.log(dataH), error => console.log(error));

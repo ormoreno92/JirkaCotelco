@@ -46,4 +46,13 @@ export class HomeComponent implements OnInit {
     url += '?autoplay=1';
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+  public checkYoutube(url: string): boolean {
+    return (url.includes('youtube') || url.includes('tube'))
+  }
+  public checkHttp(url: string): SafeResourceUrl {
+    if (!url.includes('http') || !url.includes('http')) {
+      url = 'http://' + url;
+    }
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }
