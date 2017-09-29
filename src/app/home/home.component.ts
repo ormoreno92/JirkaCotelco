@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
     return (url.includes('youtube') || url.includes('tube'))
   }
   public checkHttp(url: string): SafeResourceUrl {
+    console.log(url);
     if (!url.includes('http') || !url.includes('http')) {
       url = 'http://' + url;
     }
