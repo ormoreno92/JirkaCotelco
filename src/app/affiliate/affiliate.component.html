@@ -88,6 +88,7 @@
                   <input type="text" class="form-control" id="rl" name="rl" required ngModel>
                 </div>
               </div>
+
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="sbct" class="label-form">Subcategoría<span class="mandatory">(*)</span></label>
@@ -97,11 +98,15 @@
                   </select>
                 </div>
               </div>
+              
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="capi" class="label-form">Capítulo<span class="mandatory">(*)</span></label>
                   <select data-tooltip-text='Indique el capítulo Cotelco al que desea afiliarse. Si en su departamento no hay capítulo constituido, por favor seleccione Cotelco Nacional'
                     id="capi" class="form-control ntooltip" name="capi" required ngModel>
+                    <div class="tooltip">Hover over me
+                        <span class="tooltiptext">Tooltip text</span>
+                      </div>
                     <option value="" disabled>Seleccione una opción</option>
                     <option *ngFor="let chapter of chapters; let i=index" value="{{chapter.id}}">{{chapter.name}}</option>
                   </select>
