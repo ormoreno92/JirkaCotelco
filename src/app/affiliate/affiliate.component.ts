@@ -79,7 +79,7 @@ export class AffiliateComponent implements OnInit {
       }`;
     console.log(obj);
     this.dataService.sendAfilieseForm(obj)
-      .subscribe(dataH => console.log(dataH), error => console.log(error));
+      .subscribe(dataH => this.reviewPost(dataH), error => console.log(error));
   }
 
   public validateRnt(event: any): void {
@@ -162,5 +162,15 @@ export class AffiliateComponent implements OnInit {
       });
 
     });
+  }
+
+  private reviewPost(dataH: any): void {
+    console.log(dataH)
+    if (dataH.success) {
+      alert('Su petición ha sido enviada, gracias por contactarnos');
+      document.location.href="/";
+    }else{
+      alert('hubo un error enviando su petición. Por favor, vuelva a intentarlo');
+    }
   }
 }
