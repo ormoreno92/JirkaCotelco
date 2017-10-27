@@ -20,12 +20,12 @@ export class LoginComponent implements OnInit {
 
   public setGeneralLogin(data): void {
     $('.loginError').hide();
-    let rUrl = '';
+    let rUrl = 'http://apps.jirka.co/JSih/LoginServlet?username=@srnm&password=@passwd';
     if (!this.isNullOrEmpty(localStorage.getItem('redirectLoginUrl'))) {
       rUrl = localStorage.getItem('redirectLoginUrl');
     }
     this.dataService.checkLogin(data.value.uLogin, data.value.uPassword)
-      .subscribe(dataH => this.redirectToUrl(dataH, rUrl), error => console.log(error));
+      .subscribe(dataH => this.redirectToUrl(dataH, rUrl, data.value.uLogin, data.value.uPassword), error => console.log(error));
   }
 
   private isNullOrEmpty(data: any): boolean {
@@ -33,10 +33,14 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
-  private redirectToUrl(rsp: any, url: string): void {
+  private redirectToUrl(rsp: any, url: string, usr: string, password: string): void {
     if (!rsp.success) {
       $('.loginError').show();
       return;
+    }
+    if (url.includes('@srnm')) {
+      url = url.replace('@srnm', usr);
+      url = url.replace('@passwd', password);
     }
     window.open(url, '_blank');
     $('#closeLogin').click();

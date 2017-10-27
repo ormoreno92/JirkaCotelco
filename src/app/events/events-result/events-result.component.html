@@ -44,7 +44,7 @@
   <div class="row" *ngIf="events?.length > 0; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
     <div class="col-md-3 hotel-block" *ngFor="let affiliate of events | paginate: { itemsPerPage: 6, currentPage: p }" style="cursor:pointer;"
-      (click)="goToEvent(affiliate.id)">
+      (click)="goToEvent(affiliate.token)">
       <div class="row-fluid inner-h-p">
         <div class="col-md-12 inner-h">
           <img *ngIf="isNullOrEmpty(affiliate.advertisingPiece);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"

@@ -77,7 +77,7 @@
           <li>
             <a href="javascript:void(0)">
             <i class="glyphicon glyphicon-earphone"></i>
-            <span class="clpo">{{chapter.cellPhone}}</span>
+            <span class="clpo">{{chapter.phone}}</span>
           </a>
           </li>
           <li>
@@ -87,7 +87,7 @@
           </a>
           </li>
           <li>
-            <span class="spn-info spn-3" type ="button" class="btn btn-primary">{{chapter.webSite}}</span>
+            <span (click)="redirectTo(chapter.webSite)" class="spn-info spn-3" type="button" class="btn btn-primary">Sitio Web</span>
           </li>
         </ul>
       </div>

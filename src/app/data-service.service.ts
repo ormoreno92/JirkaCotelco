@@ -50,7 +50,9 @@ export class DataServiceService {
     searchTrainnings: 'http://apps.jirka.co/JSih/webresources/TrainingREST/searchTrainings/',
     getTrainnings: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainings',
     getTrainningsByChapter: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainingsByChapter/',
-    getSpecificTrainning: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTraining/'
+    getSpecificTrainning: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTraining/',
+    getEventByToken: 'http://apps.jirka.co/JSih/webresources/EventsREST/getEventByToken/',
+    getTrainningByToken: 'http://apps.jirka.co/JSih/webresources/TrainingREST/getTrainingsByToken/'
   };
   private headers = new Headers({ 'Accept': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -123,12 +125,12 @@ export class DataServiceService {
   }
 
   public getTrainningDetails(id: any): Observable<any> {
-    return this.http.get(this.services.getSpecificTrainning + id, this.options)
+    return this.http.get(this.services.getTrainningByToken + id, this.options)
       .map(res => res.json());
   }
 
   public getEventDetails(eventId: any): Observable<any> {
-    return this.http.get(this.services.getEventDetails + eventId, this.options)
+    return this.http.get(this.services.getEventByToken + eventId, this.options)
       .map(res => res.json());
   }
 

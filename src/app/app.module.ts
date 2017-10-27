@@ -102,7 +102,7 @@ import { TriningDetailComponent } from './trainings/trining-detail/trining-detai
         component: PressComponent
       },
       {
-        path: '\Evento',
+        path: '\Evento/:id',
         component: EventsComponent
       },
       {
@@ -142,7 +142,7 @@ import { TriningDetailComponent } from './trainings/trining-detail/trining-detai
         component: PressHistoryComponent
       },
       {
-        path: '\Capacitacion',
+        path: '\Capacitacion/:id',
         component: TriningDetailComponent
       }
     ]),

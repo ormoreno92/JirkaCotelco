@@ -9,7 +9,7 @@
   <div class="row-fluid">
     <div *ngFor="let consultance of consultancies; let i=index" class="col-md-2 consulting-menu" [ngClass]="{'col-md-offset-3 yellow-i':i==0,'red-i':i==2}"
       (click)="changeSelector(consultance.id,i)">
-      <img *ngIf="!isNullOrEmpty(consultance.image);else other_content" src="./assets/img/aliados.png" alt="{{consultance.name}}">
+      <img *ngIf="isNullOrEmpty(consultance.image);else other_content" src="./assets/img/aliados.png" alt="{{consultance.name}}">
       <ng-template #other_content>
         <img src="{{consultance.image}}" alt="{{consultance.name}}">
       </ng-template>

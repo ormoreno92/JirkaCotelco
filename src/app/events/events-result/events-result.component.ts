@@ -55,10 +55,8 @@ export class EventsResultComponent implements OnInit {
     return false;
   }
 
-  public goToEvent(id: any): void {
-    localStorage.removeItem('eventSearchObj');
-    localStorage.setItem('eventSearchObj', id);
-    window.open('./Evento', '_blank');
+  public goToEvent(id: any): void {    
+    window.open('./Evento/' + id, '_blank');
     // this.router.navigate(['./Evento']);
   }
 

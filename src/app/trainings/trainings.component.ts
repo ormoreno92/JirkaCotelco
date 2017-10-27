@@ -19,9 +19,7 @@ export class TrainingsComponent implements OnInit {
       .subscribe(dataH => this.capitulos = dataH, error => console.log(error));
   }
   public RedirectTo(id: string): void {
-    localStorage.removeItem('currentTrainning');
-    localStorage.setItem('currentTrainning', id);
-    this.router.navigate(['./Capacitacion']);
+    this.router.navigate(['./Capacitacion/' + id]);
   }
   public getByChapter(id: number): void {
     this.dataService.getTrainningsByChapter(id)
@@ -30,8 +28,8 @@ export class TrainingsComponent implements OnInit {
 
   private drawCapacitaciones(dataH: any): void {
     dataH.forEach(el => {
-      if (el.piece == null || el.piece === 'null' || el.piece === '') {
-        el.piece = './assets/img/genericHotel.png';
+      if (el.advertisingPiece == null || el.advertisingPiece === 'null' || el.advertisingPiece === '') {
+        el.advertisingPiece = './assets/img/genericHotel.png';
       }
       el.startDate = new Date(el.startDate);
     });

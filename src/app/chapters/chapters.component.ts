@@ -20,12 +20,16 @@ export class ChaptersComponent implements OnInit {
       .subscribe(dataH => this.drawInfo(dataH), error => console.log(error));
   }
 
+  public redirectTo(url: string): void {
+    window.open(url, '_blank');
+  }
+
   private drawInfo(dataH: any): void {
-    console.log(dataH);
     this.chapters = dataH;
     this.chapter = dataH[0];
     this.drawMap();
   }
+
   private drawMap(): void {
     const _self = this;
     $('#map-colombia').CSSMap({

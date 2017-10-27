@@ -34,8 +34,8 @@
           <div id="sec1" class="tab-pane active">
             <div class="col-md-4" *ngFor="let capacitacion of capacitaciones; let i=index">
               <div class="row-fluid">
-                <div class="inner-training" (click)="RedirectTo(capacitacion.id)">
-                  <img src="{{capacitacion.piece}}" alt="{{capacitacion.name}}">
+                <div class="inner-training" (click)="RedirectTo(capacitacion.token)">
+                  <img src="{{capacitacion.advertisingPiece}}" alt="{{capacitacion.name}}">
                   <span class="trining-date">
                     {{capacitacion.startDate |  date:'MM/dd/yyyy'}}
                   </span>

@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['./' + url]);
   }
   public RedirectToExternal(url: string): void {
-    window.open(url, '_blank');
+    debugger;
+    if (!this.isNullOrEmpty(url)) window.open(url, '_blank');
   }
   public hideVideo(): void {
     $('#video').remove();

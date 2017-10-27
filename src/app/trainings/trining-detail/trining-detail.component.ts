@@ -17,8 +17,8 @@ export class TriningDetailComponent implements OnInit {
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
-    const tranningId = localStorage.getItem('currentTrainning');
-    this.dataService.getTrainningDetails(tranningId)
+    const tranningId = window.location.href.split('/');
+    this.dataService.getTrainningDetails(tranningId.pop())
       .subscribe(dataH => this.drawTrainning(dataH), error => console.log(error));
   }
 
